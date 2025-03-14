@@ -8,8 +8,6 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/admin', [AdminController::class, 'index']);
-
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
