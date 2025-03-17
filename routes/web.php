@@ -8,6 +8,10 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/meja-inzage', function () {
+    return view('meja_inzage');
+})->middleware(['auth', 'verified'])->name('meja_inzage');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
