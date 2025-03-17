@@ -20,6 +20,10 @@ Route::get('/meja-perdata', function () {
     return view('meja_perdata');
 })->middleware(['auth', 'verified'])->name('meja_perdata');
 
+Route::get('/meja-pidana', function () {
+    return view('meja_pidana');
+})->middleware(['auth', 'verified'])->name('meja_pidana');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
