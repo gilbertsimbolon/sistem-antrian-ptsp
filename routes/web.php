@@ -24,6 +24,10 @@ Route::get('/meja-pidana', function () {
     return view('meja_pidana');
 })->middleware(['auth', 'verified'])->name('meja_pidana');
 
+Route::get('/meja-hukum-atau-pengaduan', function () {
+    return view('meja_hukum_atau_pengaduan');
+})->middleware(['auth', 'verified'])->name('meja_hukum_atau_pengaduan');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
