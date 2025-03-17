@@ -14,43 +14,41 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
-                    <a href="#" class="nav-link active">
-                        <p>Meja 1</p>
+                    <a href="#" class="nav-link">
+                        <p>Tambah Antrian</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <p>Meja 2</p>
+                        <p>Meja Inzage</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <p>Meja 3</p>
+                        <p>Meja Umum</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <p>Meja 4</p>
+                        <p>Meja Perdata</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <p>Meja 5</p>
+                        <p>Meja Pidana</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <p>Meja 6</p>
+                        <p>Meja Hukum/Pengaduan</p>
                     </a>
                 </li>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <p>Meja 7</p>
+                        <p>Meja Pojok e-Court</p>
                     </a>
                 </li>
             </ul>
         </nav>
-        <!-- /.sidebar-menu -->
     </div>
-    <!-- /.sidebar -->
 </aside>

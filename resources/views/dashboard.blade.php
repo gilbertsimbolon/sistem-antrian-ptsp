@@ -13,6 +13,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{ asset('lte/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
@@ -28,9 +30,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-
             <!-- Main content -->
             <div class="mt-3 content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12 col-12">
+                            <!-- small box -->
+                            <div class="small-box bg-success" style="height: 150px;">
+                                <div class="inner d-flex align-items-center justify-content-between p-3" style="height: 100%;">
+                                    <h3 class="text-white m-0 ms-24">TAMBAH ANTRIAN</h3>
+                                    <i class="bi bi-plus display-3 text-white"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-6 col-6">
@@ -44,7 +58,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info 
+                                <a href="#" class="small-box-footer">More info
                                     <i class="fas fa-arrow-circle-right"></i>
                                 </a>
                             </div>
@@ -121,24 +135,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 <div class="inner">
                                     <h3>150</h3>
 
-                                    <p>New Orders</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-bag"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12 col-12">
-                            <!-- small box -->
-                            <div class="small-box bg-info">
-                                <div class="inner">
-                                    <h3>150</h3>
-                
                                     <p>New Orders</p>
                                 </div>
                                 <div class="icon">
