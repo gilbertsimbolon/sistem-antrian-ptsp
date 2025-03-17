@@ -12,6 +12,14 @@ Route::get('/meja-inzage', function () {
     return view('meja_inzage');
 })->middleware(['auth', 'verified'])->name('meja_inzage');
 
+Route::get('/meja-umum', function () {
+    return view('meja_umum');
+})->middleware(['auth', 'verified'])->name('meja_umum');
+
+Route::get('/meja-perdata', function () {
+    return view('meja_perdata');
+})->middleware(['auth', 'verified'])->name('meja_perdata');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

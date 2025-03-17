@@ -47,7 +47,7 @@
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="/meja-umum" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>
@@ -66,7 +66,7 @@
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info
+                    <a href="/meja-perdata" class="small-box-footer">More info
                         <i class="fas fa-arrow-circle-right"></i>
                     </a>
                 </div>
@@ -83,7 +83,7 @@
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="/meja-pidana" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>
@@ -102,7 +102,7 @@
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="/meja-hukum-atau-pengaduan" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
             <!-- Meja Pojok e-Court -->
@@ -117,7 +117,7 @@
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="/meja-pojok-e-court" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
                 </div>
             </div>
         </div>
