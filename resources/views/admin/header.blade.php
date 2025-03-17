@@ -6,9 +6,16 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="text-white fas fa-bars"></i></a>
         </li>
     </ul>
+    
+    <div class="container-fluid d-flex justify-content-center">
+        <ul class="navbar-nav">
+            <li id="clock" class="fs-3 fw-bold text-white"></li>
+        </ul>
+    </div>
 
     <!-- Right navbar links -->
     <ul class="ml-auto navbar-nav">
+        {{-- <li id="clock" class="fs-3 fw-bold mt-3"></li> --}}
         <li class="nav-item">
             <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                 <i class="text-white fas fa-expand-arrows-alt"></i>

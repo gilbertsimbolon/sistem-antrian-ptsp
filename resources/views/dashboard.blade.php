@@ -19,8 +19,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{ asset('lte/plugins/fontawesome-free/css/all.min.css') }}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('lte/dist/css/adminlte.min.css') }}">
+    <script src="{{ asset('js/date-time.js') }}"></script>
 </head>
-
+    
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
 
