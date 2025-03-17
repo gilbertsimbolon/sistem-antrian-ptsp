@@ -15,11 +15,6 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item">
                     <a href="#" class="nav-link">
-                        <p>Tambah Antrian</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
                         <p>Meja Inzage</p>
                     </a>
                 </li>
