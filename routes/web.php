@@ -28,6 +28,10 @@ Route::get('/meja-hukum-atau-pengaduan', function () {
     return view('meja_hukum_atau_pengaduan');
 })->middleware(['auth', 'verified'])->name('meja_hukum_atau_pengaduan');
 
+Route::get('/meja-pojok-e-court', function () {
+    return view('meja_pojok_e_court');
+})->middleware(['auth', 'verified'])->name('meja_pojok_e_court');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
