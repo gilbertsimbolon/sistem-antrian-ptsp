@@ -2,13 +2,15 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 col-12">
-                <!-- small box -->
-                <div class="small-box bg-success" style="height: 150px;">
-                    <div class="inner d-flex align-items-center justify-content-between p-3" style="height: 100%;">
-                        <h3 class="text-white m-0 ms-24">TAMBAH ANTRIAN</h3>
-                        <i class="bi bi-plus display-3 text-white"></i>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success small-box" data-toggle="modal" data-target="#exampleModalCenter" style="height: 100px; width: 100%">
+                    <div class="p-3 inner d-flex align-items-center justify-content-between" style="height: 100%">
+                        <h3 class="m-0 text-white ms-24">TAMBAH ANTRIAN</h3>
+                        <i class="text-white bi bi-plus display 3"></i>
                     </div>
-                </div>
+                </button>
+
+                @include('components.modal-tambah-antrian')
             </div>
         </div>
     </div>
