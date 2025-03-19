@@ -21,7 +21,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="{{ asset('lte/dist/css/adminlte.min.css') }}">
     <script src="{{ asset('js/date-time.js') }}"></script>
 </head>
-    
+
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
 
@@ -34,7 +34,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Main content -->
         @include('components.card-info')
 
-        <h1 class="text-center">TOTAL KELUHAN HARI INI!</h1>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
