@@ -33,80 +33,71 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="content-wrapper">
             <!-- Main content -->
             <div class="row p-2">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">Meja Pidana</h3>
+                <div class="col-12">
+                    <!-- Button Modal -->
+                    <div class="container-fluid d-flex justify-content-end">
+                        <button type="button" class="btn btn-success small-box" data-toggle="modal" data-target="#exampleModalCenter"
+                            style="width: 330px; height: 45px;">
+                            <div class="p-3 inner d-flex align-items-center justify-content-between" style="height: 100%">
+                                <h3 class="m-0 text-white">TAMBAH ANTRIAN</h3>
+                            </div>
+                        </button>
 
-                <div class="card-tools">
-                  <div class="input-group input-group-sm" style="width: 150px;">
-                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                    <div class="input-group-append">
-                      <button type="submit" class="btn btn-default">
-                        <i class="fas fa-search"></i>
-                      </button>
+                        @include('components.modal-tambah-antrian')
                     </div>
-                  </div>
+
+                    <!-- Tabel Meja Pidana -->
+                    <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Meja Pidana</h3>
+
+                        <div class="card-tools d-flex align-items-center gap-3">
+                            <div class="input-group input-group-sm" style="width: 150px;">
+                                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                <div class="input-group-append">
+                                    <button type="submit" class="btn btn-default">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.card-header -->
+                    <div class="card-body table-responsive p-0">
+                        <table class="table table-hover text-nowrap">
+                        <thead>
+                            <tr>
+                            <th>Nomor Perkara</th>
+                            <th>Nama Penggugat</th>
+                            <th>Nama Tergugat</th>
+                            <th>Kuasa hukum penggugat (jika ada)</th>
+                            <th>Kuasa hukum tergugat (jika ada)</th>
+                            <th>Ruang Sidang</th>
+                            <th>Hakim yang menangani kasus</th>
+                            <th>Panitera</th>
+                            <th>Tanggal Sidang</th>
+                            <th>Waktu Sidang</th>
+                            <th>Status</th>
+                            <th>Waktu Pencatatan</th>
+                            <th>Terakhir Diperbarui</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <td>1</td>
+                            <td>John Doe</td>
+                            <td>11-7-2014</td>
+                            <td><span class="tag tag-success">Approved</span></td>
+                            <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
+                            <td>Lorem</td>
+                            </tr>
+                        </tbody>
+                        </table>
+                    </div>
+                <!-- /.card-body -->
                 </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
-                  <thead>
-                    <tr>
-                      <th>ID</th>
-                      <th>Nomor Perkara</th>
-                      <th>Nama Penggugat</th>
-                      <th>Nama Tergugat</th>
-                      <th>Kuasa hukum penggugat (jika ada)</th>
-                      <th>Kuasa hukum tergugat (jika ada)</th>
-                      <th>Ruang Sidang</th>
-                      <th>Hakim yang menangani kasus</th>
-                      <th>Panitera</th>
-                      <th>Tanggal Sidang</th>
-                      <th>Waktu Sidang</th>
-                      <th>Status</th>
-                      <th>Waktu Pencatatan</th>
-                      <th>Terakhir Diperbarui</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>183</td>
-                      <td>John Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-success">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>219</td>
-                      <td>Alexander Pierce</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-warning">Pending</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>657</td>
-                      <td>Bob Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-primary">Approved</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                    <tr>
-                      <td>175</td>
-                      <td>Mike Doe</td>
-                      <td>11-7-2014</td>
-                      <td><span class="tag tag-danger">Denied</span></td>
-                      <td>Bacon ipsum dolor sit amet salami venison chicken flank fatback doner.</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <!-- /.card-body -->
+                <!-- /.card -->
             </div>
-            <!-- /.card -->
-          </div>
         </div>
 
         </div>
