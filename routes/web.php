@@ -1,8 +1,10 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\MejaPidanaController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+
 
 Route::get('/', function () {
     return view('auth.login');
@@ -20,9 +22,13 @@ Route::get('/meja-perdata', function () {
     return view('meja_perdata');
 })->middleware(['auth', 'verified'])->name('meja_perdata');
 
-Route::get('/meja-pidana', function () {
-    return view('meja_pidana');
-})->middleware(['auth', 'verified'])->name('meja_pidana');
+Route::middleware('auth')->group(function () {
+    Route::get('/meja-pidana', [MejaPidanaController::class, 'index'])->name('meja-pidana.index');
+    Route::get('/meja-pidana/create', [MejaPidanaController::class, 'create'])->name('meja-pidana.create');
+    Route::post('/meja-pidana', [MejaPidanaController::class, 'store'])->name('meja-pidana.store');
+});
+
+
 
 Route::get('/meja-hukum-atau-pengaduan', function () {
     return view('meja_hukum_atau_pengaduan');

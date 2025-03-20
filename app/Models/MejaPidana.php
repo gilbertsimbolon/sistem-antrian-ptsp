@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class meja_pidana extends Model
+class MejaPidana extends Model
 {
     use HasFactory;
+
+    protected $table = 'meja_pidanas';
 
     protected $fillable = [
         'nomor_perkara',
@@ -19,7 +21,8 @@ class meja_pidana extends Model
         'hakim',
         'panitera',
         'tanggal_sidang',
-        'waktu_sidang',
+        'sidang_mulai',
+        'sidang_akhir',
         'status',
     ];
 }

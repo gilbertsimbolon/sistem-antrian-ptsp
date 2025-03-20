@@ -16,13 +16,14 @@ return new class extends Migration
             $table->string('nomor_perkara');
             $table->string('nama_penggugat');
             $table->string('nama_tergugat');
-            $table->string('kuasa_hukum_pengguggat');
+            $table->string('kuasa_hukum_penggugat');
             $table->string('kuasa_hukum_tergugat');
             $table->string('ruang_sidang');
             $table->string('hakim');
             $table->string('panitera');
             $table->date('tanggal_sidang');
-            $table->time('waktu_sidang');
+            $table->time('sidang_mulai');
+            $table->time('sidang_akhir');
             $table->enum('status', ['menunggu', 'dipanggil', 'sukses']);
             $table->timestamps();
         });
