@@ -25,6 +25,9 @@ return new class extends Migration
             $table->time('sidang_mulai');
             $table->time('sidang_akhir');
             $table->enum('status', ['menunggu', 'dipanggil', 'sukses']);
+            $table->enum('hadir_hakim', ['hadir', 'tidak_hadir'])->default('tidak_hadir');
+            $table->enum('hadir_penggugat', ['hadir', 'tidak_hadir'])->default('tidak_hadir');
+            $table->enum('hadir_tergugat', ['hadir', 'tidak_hadir'])->default('tidak_hadir');
             $table->timestamps();
         });
     }

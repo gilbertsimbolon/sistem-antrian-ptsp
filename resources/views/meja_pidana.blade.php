@@ -77,18 +77,42 @@
                                         <th>Status</th>
                                         <th>Waktu Pencatatan</th>
                                         <th>Terakhir Diperbarui</th>
+                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @forelse ($antrian_pidana as $antrian)
                                     <tr>
                                         <td>{{ $antrian->nomor_perkara }}</td>
-                                        <td>{{ $antrian->nama_penggugat }}</td>
-                                        <td>{{ $antrian->nama_tergugat }}</td>
+
+                                         <!-- Nama Penggugat -->
+                                        <td class="clickable-name" data-id="{{ $antrian->id }}" data-role="penggugat">
+                                            {{ $antrian->nama_penggugat }}
+                                            <span class="status-badge badge rounded-circle 
+                                                {{ $antrian->hadir_penggugat == 'hadir' ? 'bg-success' : 'bg-danger' }}">
+                                            </span>
+                                        </td>
+
+                                        <!-- Tergugat -->
+                                        <td class="clickable-name" data-id="{{ $antrian->id }}" data-role="tergugat">
+                                            {{ $antrian->nama_tergugat }}
+                                            <span class="status-badge badge rounded-circle 
+                                                {{ $antrian->hadir_tergugat == 'hadir' ? 'bg-success' : 'bg-danger' }}">
+                                            </span>
+                                        </td>
+
                                         <td>{{ $antrian->kuasa_hukum_penggugat ?? '-' }}</td>
                                         <td>{{ $antrian->kuasa_hukum_tergugat ?? '-' }}</td>
                                         <td>{{ $antrian->ruang_sidang }}</td>
-                                        <td>{{ $antrian->hakim }}</td>
+
+                                        <!-- Nama Hakim -->
+                                        <td class="clickable-name" data-id="{{ $antrian->id }}" data-role="hakim">
+                                            {{ $antrian->hakim }}
+                                            <span class="status-badge badge rounded-circle 
+                                                                {{ $antrian->hadir_hakim == 'hadir' ? 'bg-success' : 'bg-danger' }}">
+                                            </span>
+                                        </td>
+
                                         <td>{{ $antrian->panitera }}</td>
                                         <td>{{ $antrian->tanggal_sidang }}</td>
                                         <td>{{ $antrian->sidang_mulai }}</td>
@@ -108,6 +132,19 @@
                                         </td>
                                         <td>{{ $antrian->created_at->format('d-m-Y H:i') }}</td>
                                         <td>{{ $antrian->updated_at->format('d-m-Y H:i') }}</td>
+
+                                        <!-- Kolom Aksi -->
+                                        <td>
+                                            <a href="{{ route('meja-pidana.edit', $antrian->id) }}" class="badge bg-warning text-dark">
+                                                📝 Edit
+                                            </a>
+                                            <a href="#" class="badge bg-danger text-white delete-btn" data-id="{{ $antrian->id }}">
+                                                ❌ Hapus
+                                            </a>
+                                            <a href="#" class="badge bg-primary text-white play-sound" data-nama="{{ $antrian->hakim }}">
+                                                🔊 Suara
+                                            </a>
+                                        </td>
                                     </tr>
                                     @empty
                                     <tr>
@@ -116,6 +153,33 @@
                                     @endforelse
                                 </tbody>
                             </table>
+                            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                            <script>
+                                $(document).ready(function () {
+                                    $(".clickable-name").click(function () {
+                                        let id = $(this).data("id");
+                                        let role = $(this).data("role");
+                                        let badge = $(this).find(".status-badge");
+                            
+                                        $.ajax({
+                                            url: "{{ route('meja-pidana.update-kehadiran') }}",
+                                            type: "POST",
+                                            data: {
+                                                _token: "{{ csrf_token() }}",
+                                                id: id,
+                                                role: role
+                                            },
+                                            success: function (response) {
+                                                if (response.success) {
+                                                    badge.removeClass("bg-success bg-danger")
+                                                        .addClass(response.badgeClass)
+                                                        .text(response.status === "hadir" ? "✓" : "✗");
+                                                }
+                                            }
+                                        });
+                                    });
+                                });
+                            </script>
                         </div>
                         <!-- /.card-body -->
                     </div>
@@ -144,5 +208,4 @@
     <script src="{{ asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('lte/dist/js/adminlte.min.js') }}"></script>
 </body>
-
 </html>
