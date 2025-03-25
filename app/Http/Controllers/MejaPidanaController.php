@@ -51,8 +51,8 @@ class MejaPidanaController extends Controller
             'status' => $request->status ?? 'menunggu', // Tambahkan default jika kosong
         ]);
 
-        
-        
+
+
 
         return redirect()->route('meja-pidana.index')->with('success', 'Data berhasil ditambahkan.');
     }
@@ -60,24 +60,34 @@ class MejaPidanaController extends Controller
     public function updateKehadiran(Request $request)
     {
         $request->validate([
-            'id' => 'required|exists:meja_pidana,id',
+            'id' => 'required|exists:meja_pidanas,id',
             'role' => 'required|in:hakim,penggugat,tergugat',
         ]);
 
-        // Ambil data
         $antrian = MejaPidana::find($request->id);
         $field = "hadir_" . $request->role;
 
-        // Toggle kehadiran
+        // Toggle status kehadiran
         $newStatus = $antrian->$field == 'hadir' ? 'tidak_hadir' : 'hadir';
         $antrian->update([$field => $newStatus]);
+
+        // **Cek apakah semua hadir**
+        $isAllPresent = $antrian->hadir_hakim === 'hadir' &&
+            $antrian->hadir_penggugat === 'hadir' &&
+            $antrian->hadir_tergugat === 'hadir';
+
+        // Perbarui status berdasarkan kehadiran
+        $newStatusGlobal = $isAllPresent ? 'siap sidang' : 'menunggu';
+        $antrian->update(['status' => $newStatusGlobal]);
 
         return response()->json([
             'success' => true,
             'status' => $newStatus,
-            'badgeClass' => $newStatus == 'hadir' ? 'bg-success' : 'bg-danger'
+            'badgeClass' => $newStatus == 'hadir' ? 'bg-success' : 'bg-danger',
+            'statusGlobal' => $newStatusGlobal // Kirim status terbaru
         ]);
     }
+
 
     public function edit($id)
     {

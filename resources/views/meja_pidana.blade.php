@@ -75,8 +75,6 @@
                                         <th>Waktu Mulai</th>
                                         <th>Waktu Selesai</th>
                                         <th>Status</th>
-                                        <th>Waktu Pencatatan</th>
-                                        <th>Terakhir Diperbarui</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
@@ -88,7 +86,7 @@
                                          <!-- Nama Penggugat -->
                                         <td class="clickable-name" data-id="{{ $antrian->id }}" data-role="penggugat">
                                             {{ $antrian->nama_penggugat }}
-                                            <span class="status-badge badge rounded-circle 
+                                            <span class="status-badge badge rounded-circle
                                                 {{ $antrian->hadir_penggugat == 'hadir' ? 'bg-success' : 'bg-danger' }}">
                                             </span>
                                         </td>
@@ -96,7 +94,7 @@
                                         <!-- Tergugat -->
                                         <td class="clickable-name" data-id="{{ $antrian->id }}" data-role="tergugat">
                                             {{ $antrian->nama_tergugat }}
-                                            <span class="status-badge badge rounded-circle 
+                                            <span class="status-badge badge rounded-circle
                                                 {{ $antrian->hadir_tergugat == 'hadir' ? 'bg-success' : 'bg-danger' }}">
                                             </span>
                                         </td>
@@ -108,7 +106,7 @@
                                         <!-- Nama Hakim -->
                                         <td class="clickable-name" data-id="{{ $antrian->id }}" data-role="hakim">
                                             {{ $antrian->hakim }}
-                                            <span class="status-badge badge rounded-circle 
+                                            <span class="status-badge badge rounded-circle
                                                                 {{ $antrian->hadir_hakim == 'hadir' ? 'bg-success' : 'bg-danger' }}">
                                             </span>
                                         </td>
@@ -130,19 +128,17 @@
                                             <span class="badge badge-secondary">{{ ucfirst($item->status) }}</span>
                                             @endif
                                         </td>
-                                        <td>{{ $antrian->created_at->format('d-m-Y H:i') }}</td>
-                                        <td>{{ $antrian->updated_at->format('d-m-Y H:i') }}</td>
 
                                         <!-- Kolom Aksi -->
                                         <td>
                                             <a href="{{ route('meja-pidana.edit', $antrian->id) }}" class="badge bg-warning text-dark">
-                                                📝 Edit
+                                                📝
                                             </a>
                                             <a href="#" class="badge bg-danger text-white delete-btn" data-id="{{ $antrian->id }}">
-                                                ❌ Hapus
+                                                ❌
                                             </a>
                                             <a href="#" class="badge bg-primary text-white play-sound" data-nama="{{ $antrian->hakim }}">
-                                                🔊 Suara
+                                                🔊
                                             </a>
                                         </td>
                                     </tr>
@@ -157,10 +153,11 @@
                             <script>
                                 $(document).ready(function () {
                                     $(".clickable-name").click(function () {
-                                        let id = $(this).data("id");
-                                        let role = $(this).data("role");
-                                        let badge = $(this).find(".status-badge");
-                            
+                                        let nameElement = $(this);
+                                        let id = nameElement.data("id");
+                                        let role = nameElement.data("role");
+                                        let badge = nameElement.find(".status-badge");
+
                                         $.ajax({
                                             url: "{{ route('meja-pidana.update-kehadiran') }}",
                                             type: "POST",
@@ -171,10 +168,14 @@
                                             },
                                             success: function (response) {
                                                 if (response.success) {
-                                                    badge.removeClass("bg-success bg-danger")
-                                                        .addClass(response.badgeClass)
-                                                        .text(response.status === "hadir" ? "✓" : "✗");
+                                                    // Ubah tampilan badge berdasarkan status baru
+                                                    badge.removeClass("bg-success bg-danger").addClass(response.badgeClass);
+                                                } else {
+                                                    alert("Gagal mengubah status.");
                                                 }
+                                            },
+                                            error: function () {
+                                                alert("Terjadi kesalahan.");
                                             }
                                         });
                                     });
