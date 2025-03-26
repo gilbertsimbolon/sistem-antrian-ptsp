@@ -11,13 +11,13 @@ class MejaPidanaController extends Controller
     public function index()
     {
         $antrian_pidana = MejaPidana::all();
-        return view('meja_pidana', compact('antrian_pidana'));
+        return view('meja-pidana.meja_pidana', compact('antrian_pidana'));
     }
 
     // membuat data baru
     public function create()
     {
-        return view('meja_pidana');
+        return view('meja-pidana.tambah');
     }
 
     // memasukkan data ke database
