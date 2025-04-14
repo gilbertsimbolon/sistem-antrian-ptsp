@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sistem Antrian PTSP | PN TONDANO</title>
+    <title>Sistem Antrian | PN TONDANO</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -28,7 +28,7 @@
         @include('admin.sidebar')
 
         <!-- Konten -->
-        @include('components.tabel-meja-pidana')
+        @include('meja-pidana.tabel-meja-pidana')
 
         @include('admin.footer')
 
