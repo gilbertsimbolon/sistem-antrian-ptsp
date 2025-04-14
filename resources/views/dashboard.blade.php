@@ -20,6 +20,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('lte/dist/css/adminlte.min.css') }}">
     <script src="{{ asset('js/date-time.js') }}"></script>
+
+    <style>
+        .text-bordered{
+            color: black;
+            -webkit-text-stroke: 1px;
+            font-weight: bold; 
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -29,16 +37,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         @include('admin.sidebar')
 
-        <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <!-- Main content -->
-        @include('components.card-info')
-
-            <!-- /.content -->
+            <div class="text-center d-flex flex-column justify-content-center align-items-center" style="min-height: 80vh;">
+                <img src="{{ asset('img/logo-pntondano.png') }}" alt="Logo PN Tondano" style="width: 20%; height: 20%;">
+                <h1 class="mt-3 text-uppercase fs-1 text-bordered" style="font-family: 'Times New Roman', Times, serif">Sistem Antrian <br> Pengadilan Negeri Tondano</h4>
+            </div>
         </div>
-        <!-- /.content-wrapper -->
-
-        <!-- Control Sidebar -->
+        
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
             <div class="p-3">

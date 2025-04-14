@@ -1,24 +1,14 @@
 <div class="content-wrapper">
     <div class="p-2 row">
         <div class="col-12">
-            <!-- Button Modal -->
-            <div class="container-fluid d-flex justify-content-end">
-                <button type="button" class="btn btn-success small-box" data-toggle="modal"
-                    data-target="#exampleModalCenter" style="width: 330px; height: 45px;">
-                    <div class="p-3 inner d-flex align-items-center justify-content-between" style="height: 100%">
-                        <a href="/meja-pidana/tambah" class="m-0 text-white">TAMBAH ANTRIAN</a>
-                    </div>
-                </button>
-            </div>
-
             <!-- Tabel Meja Pidana -->
             <div class="card">
                 <div class="card-header">
-                    <h3 class="m-0 card-title">Meja Pidana</h3>
+                    <h3 class="fs-2">DATA SIDANG MEJA PIDANA</h3>
                     <div class="d-flex justify-content-end">
                         <div class="input-group input-group-sm" style="width: 200px;">
                             <input type="text" name="table_search" class="float-right form-control"
-                                placeholder="Cari...">
+                                placeholder="Cari Data Sidang...">
                             <div class="input-group-append">
                                 <button type="submit" class="btn btn-default">
                                     <i class="fas fa-search"></i>

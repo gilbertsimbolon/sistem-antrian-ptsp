@@ -10,7 +10,7 @@
                     </div>
                 </button>
 
-                @include('components.modal-tambah-antrian')
+                @include('components.form-tambah-antrian')
             </div>
         </div>
     </div>
