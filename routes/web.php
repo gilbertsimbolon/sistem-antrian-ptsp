@@ -14,9 +14,11 @@ Route::get('/home', function () {
     return view('home');
 })->middleware(['auth', 'verified'])->name('home');
 
-Route::get('/meja-pengaduan-umum', function () {
-    return view('ptsp.meja-umum-ptsp');
-})->middleware(['auth', 'verified'])->name('meja-pengaduan-umum');
+Route::prefix('ptsp')->group(function () {
+    Route::get('/antrian', function() { 
+        return view('ptsp.antrian');
+    });
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/meja-pidana', [MejaPidanaController::class, 'index'])->name('meja-pidana.index');
