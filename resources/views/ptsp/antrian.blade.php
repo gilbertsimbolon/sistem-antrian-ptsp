@@ -28,7 +28,69 @@
         @include('admin.sidebar')
 
         <div class="content-wrapper">
-            
+            <div class="container">
+                <div class="row g-4 justify-content-center">
+                    <!-- Meja Inzage -->
+                    <div class="col-md-6">
+                        <div class="text-center card-body">
+                            <button type="button" class="py-4 btn btn-success w-100" data-bs-toggle="modal"
+                                data-bs-target="#modal-inzage" style="height:250px">
+                                <h1 class="text-uppercase fs-1 fw-bold">Meja Inzage</h1>
+                            </button>
+                        </div>
+                    </div>
+        
+                    <!-- Meja Pidana -->
+                    <div class="col-md-6">
+                        <div class="text-center card-body">
+                            <button type="button" class="py-4 btn btn-primary w-100" data-bs-toggle="modal"
+                                data-bs-target="#modal-pidana" style="height:250px">
+                                <h1 class="text-uppercase fs-1">Meja Pidana</h1>
+                            </button>
+                        </div>
+                    </div>
+        
+                    <!-- Meja Perdata -->
+                    <div class="col-md-6">
+                        <div class="text-center card-body">
+                            <button type="button" class="py-4 btn btn-warning w-100" data-bs-toggle="modal"
+                                data-bs-target="#modal-perdata" style="height:250px">
+                                <h1 class="text-uppercase fs-1">Meja Perdata</h1>
+                            </button>
+                        </div>
+                    </div>
+        
+                    <!-- Meja Hukum -->
+                    <div class="col-md-6">
+                        <div class="text-center card-body">
+                            <button type="button" class="py-4 btn btn-danger w-100" data-bs-toggle="modal"
+                                data-bs-target="#modal-hukum" style="height:250px">
+                                <h1 class="text-uppercase fs-1">Meja Hukum</h1>
+                            </button>
+                        </div>
+                    </div>
+        
+                    <!-- Meja Umum -->
+                    <div class="col-md-6">
+                        <div class="text-center card-body">
+                            <button type="button" class="py-4 btn btn-info w-100" data-bs-toggle="modal"
+                                data-bs-target="#modal-umum" style="height:250px">
+                                <h1 class="text-uppercase fs-1">Meja Umum</h1>
+                            </button>
+                        </div>
+                    </div>
+        
+                    <!-- Meja Sidang -->
+                    <div class="col-md-6">
+                        <div class="text-center card-body">
+                            <button type="button" class="py-4 btn btn-secondary w-100" data-bs-toggle="modal"
+                                data-bs-target="#modal-sidang" style="height:250px">
+                                <h1 class="text-uppercase fs-1">Meja Sidang</h1>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         @include('admin.footer')
