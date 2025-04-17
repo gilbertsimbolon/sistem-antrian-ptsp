@@ -29,7 +29,7 @@
 
         <div class="content-wrapper">
             <div class="container">
-                <div class="row g-4 justify-content-center">
+                <div class="row g-4 justify-content-center py-20">
                     <!-- Meja Inzage -->
                     <div class="col-md-6">
                         <div class="text-center card-body">
@@ -37,9 +37,10 @@
                                 data-bs-target="#modal-inzage" style="height:250px">
                                 <h1 class="text-uppercase fs-1 fw-bold">Meja Inzage</h1>
                             </button>
+                            @include('ptsp.modal.meja-inzage-modal')
                         </div>
                     </div>
-        
+
                     <!-- Meja Pidana -->
                     <div class="col-md-6">
                         <div class="text-center card-body">
@@ -47,9 +48,10 @@
                                 data-bs-target="#modal-pidana" style="height:250px">
                                 <h1 class="text-uppercase fs-1">Meja Pidana</h1>
                             </button>
+                            @include('ptsp.modal.meja-pidana-modal')
                         </div>
                     </div>
-        
+
                     <!-- Meja Perdata -->
                     <div class="col-md-6">
                         <div class="text-center card-body">
@@ -57,9 +59,10 @@
                                 data-bs-target="#modal-perdata" style="height:250px">
                                 <h1 class="text-uppercase fs-1">Meja Perdata</h1>
                             </button>
+                            @include('ptsp.modal.meja-perdata-modal')
                         </div>
                     </div>
-        
+
                     <!-- Meja Hukum -->
                     <div class="col-md-6">
                         <div class="text-center card-body">
@@ -67,9 +70,10 @@
                                 data-bs-target="#modal-hukum" style="height:250px">
                                 <h1 class="text-uppercase fs-1">Meja Hukum</h1>
                             </button>
+                            @include('ptsp.modal.meja-hukum-modal')
                         </div>
                     </div>
-        
+
                     <!-- Meja Umum -->
                     <div class="col-md-6">
                         <div class="text-center card-body">
@@ -77,9 +81,10 @@
                                 data-bs-target="#modal-umum" style="height:250px">
                                 <h1 class="text-uppercase fs-1">Meja Umum</h1>
                             </button>
+                            @include('ptsp.modal.meja-umum-modal')
                         </div>
                     </div>
-        
+
                     <!-- Meja Sidang -->
                     <div class="col-md-6">
                         <div class="text-center card-body">
@@ -87,6 +92,7 @@
                                 data-bs-target="#modal-sidang" style="height:250px">
                                 <h1 class="text-uppercase fs-1">Meja Sidang</h1>
                             </button>
+                            @include('ptsp.modal.meja-sidang-modal')
                         </div>
                     </div>
                 </div>
@@ -101,6 +107,8 @@
     <script src="{{ asset('lte/plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('lte/dist/js/adminlte.min.js') }}"></script>
+    <!-- Bootstrap JS + Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
