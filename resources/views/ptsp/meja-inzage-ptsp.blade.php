@@ -27,7 +27,9 @@
         <!-- Sidebar -->
         @include('admin.sidebar')
 
-        @include('ptsp.antrian')
+        <div class="content-wrapper">
+
+        </div>
 
         @include('admin.footer')
 
