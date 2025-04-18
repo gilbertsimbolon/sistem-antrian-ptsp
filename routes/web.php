@@ -3,7 +3,9 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\MejaPidanaController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ptsp\AntrianController;
 use Illuminate\Support\Facades\Route;
+
 
 
 Route::get('/', function () {
@@ -14,10 +16,8 @@ Route::get('/home', function () {
     return view('home');
 })->middleware(['auth', 'verified'])->name('home');
 
-Route::prefix('ptsp')->group(function () {
-    Route::get('/antrian', function() { 
-        return view('ptsp.antrian');
-    });
+Route::middleware('auth')->group(function () {
+    Route::get('/ptsp/antrian', [AntrianController::class, 'index'])->name('antrian.index');
 });
 
 Route::middleware('auth')->group(function () {

@@ -23,37 +23,37 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="ptsp/antrian" class="nav-link">
+                            <a href="{{ url('ptsp/antrian') }}" class="nav-link">
                                 <p>Antrian PTSP</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="ptsp/meja-inzage" class="nav-link">
+                            <a href="{{ url('ptsp/meja-inzage') }}" class="nav-link">
                                 <p>Meja Inzage</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="ptsp/meja-umum" class="nav-link">
+                            <a href="{{ url('ptsp/meja-umum') }}" class="nav-link">
                                 <p>Meja Umum</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="ptsp/meja-perdata" class="nav-link">
+                            <a href="{{ url('ptsp/meja-perdata') }}" class="nav-link">
                                 <p>Meja Perdata</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="ptsp/meja-pidana" class="nav-link">
+                            <a href="{{ url('ptsp/meja-pidana') }}" class="nav-link">
                                 <p>Meja Pidana</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="ptsp/meja-pengaduan-umum" class="nav-link">
+                            <a href="{{ url('ptsp/meja-pengaduan-umum-atau-hukum') }}" class="nav-link">
                                 <p>Meja Pengaduan Umum/Hukum</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="ptsp/meja-pojok-e-court" class="nav-link">
+                            <a href="{{ url('ptsp/meja-pojok-e-court') }}" class="nav-link">
                                 <p>Meja Pojok E-Court</p>
                             </a>
                         </li>
