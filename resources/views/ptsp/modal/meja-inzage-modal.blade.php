@@ -14,8 +14,8 @@
                         <input type="text" class="form-control" id="nama" name="nama" required>
                     </div>
                     <div class="mb-3">
-                        <label for="telepon" class="form-label">No. Telepon</label>
-                        <input type="text" class="form-control" id="telepon" name="telepon" required>
+                        <label for="no_telepon" class="form-label">No. Telepon</label>
+                        <input type="text" class="form-control" id="telepon" name="no_telepon" required>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Jenis Kelamin</label><br>

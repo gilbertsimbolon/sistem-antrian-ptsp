@@ -20,6 +20,7 @@ Route::get('/home', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/ptsp/antrian', [AntrianController::class, 'index'])->name('antrian.index');
+    Route::post('/ptsp/meja-inzage', [AntrianController::class, 'storeInzage'])->name('antrian.storeInzage');
     Route::get('/ptsp/meja-inzage', [MejaInzageController::class, 'index'])->name('meja-inzage.index');
 });
 
