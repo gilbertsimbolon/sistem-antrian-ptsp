@@ -11,8 +11,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <title>Sisten Antrian | PN TONDANO</title>
 
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Bootstrap Icons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
     <!-- Font Awesome Icons -->
@@ -25,7 +25,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         .text-bordered{
             color: black;
             -webkit-text-stroke: 1px;
-            font-weight: bold; 
+            font-weight: bold;
         }
     </style>
 </head>
@@ -43,7 +43,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <h1 class="mt-3 text-uppercase fs-1 text-bordered" style="font-family: 'Times New Roman', Times, serif">Sistem Antrian <br> Pengadilan Negeri Tondano</h4>
             </div>
         </div>
-        
+
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
             <div class="p-3">
