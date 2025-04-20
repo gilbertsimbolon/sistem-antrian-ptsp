@@ -28,6 +28,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="{{ url('ptsp/daftar-antrian') }}" class="nav-link">
+                                <p>Daftar Antrian</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="{{ url('ptsp/meja-inzage') }}" class="nav-link">
                                 <p>Meja Inzage</p>
                             </a>

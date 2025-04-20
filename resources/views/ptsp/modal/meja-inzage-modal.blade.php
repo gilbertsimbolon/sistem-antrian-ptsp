@@ -1,7 +1,8 @@
 <!-- Modal -->
 <div class="modal fade" id="modal-inzage" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <form action="/ptsp/antrian" method="POST">
+        <form action="{{ route('antrian.inzage.store') }}" method="POST">
+            @csrf
             <!-- Ganti dengan route sesuai kebutuhan -->
             <div class="modal-content" style="width: 550px">
                 <div class="modal-header">
@@ -16,6 +17,10 @@
                     <div class="mb-3">
                         <label for="no_telepon" class="form-label">No. Telepon</label>
                         <input type="text" class="form-control" id="telepon" name="no_telepon" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="keperluan" class="form-label">Keperluan</label>
+                        <textarea class="form-control" id="keperluan" name="keperluan" rows="5" style="resize: none;" required></textarea>
                     </div>
                     <div class="mb-3">
                         <label class="form-label">Jenis Kelamin</label><br>

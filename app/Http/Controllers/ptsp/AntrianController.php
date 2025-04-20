@@ -17,12 +17,14 @@ class AntrianController extends Controller
         $validated = $request -> validate([
             'nama' => 'required|string|max:255',
             'no_telepon' => 'required|string|max:255',
+            'keperluan' => 'required|string|max:255',
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
         ]);
 
         AntrianInzage::create([
             'nama' => $validated['nama'],
             'no_telepon' => $validated['no_telepon'],
+            'keperluan' => $validated['keperluan'],
             'jenis_kelamin' => $validated['jenis_kelamin'],
         ]);
 

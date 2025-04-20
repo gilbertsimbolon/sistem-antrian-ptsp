@@ -12,6 +12,7 @@ class AntrianInzage extends Model
     protected $fillable = [
         'nama',
         'no_telepon',
+        'keperluan',
         'jenis_kelamin'
     ];
 }

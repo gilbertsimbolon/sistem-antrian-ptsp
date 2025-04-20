@@ -28,17 +28,67 @@
         @include('admin.sidebar')
 
         <div class="content-wrapper">
-
+            <h1 class="text-center">Buku Tamu Meza Inzage</h1>
+            <div class="px-4 py-3" border-radius: 10px;">
+                <table class="table table-bordered" style="background-color: #e6f4ea;">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>No Telepon</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Keperluan</th>
+                            <th>Jam Input</th>
+                            <th>Tanggal Input</th>
+                            <th style="width: 150px" class="text-nowrap">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @forelse ($dataInzage as $item)
+                        <tr>
+                            <td>{{ $item->nama }}</td>
+                            <td>{{ $item->no_telepon }}</td>
+                            <td>{{ $item->jenis_kelamin }}</td>
+                            <td>{{ $item->keperluan }}</td>
+                            <td>{{ $item->created_at->format('H:i') }}</td>
+                            <td>{{ $item->created_at->format('d-m-Y') }}</td>
+                            <td class="text-nowrap">
+                                <div class="d-flex gap-2">
+                                    <!-- Tombol Edit, buka modal -->
+                                    <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal"
+                                        data-bs-target="#edit-modal{{ $item->id }}" style="width: 70px">
+                                        Edit
+                                    </button>
+                                    @include('ptsp.modal.edit-meja-inzage')
+            
+                                    <!-- Form Hapus -->
+                                    <form action="{{ route('inzage.destroy', $item->id) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-sm btn-danger" style="width: 70px"
+                                            onclick="return confirm('Yakin ingin hapus?')">Hapus</button>
+                                    </form>
+                                </div>
+                            </td>
+                        </tr>
+                        @empty
+                        <tr>
+                            <td colspan="8" class="text-center text-muted">Data belum ada</td>
+                        </tr>
+                        @endforelse
+                    </tbody>
+                </table>
+            </div>
         </div>
 
         @include('admin.footer')
 
     </div>
 
-    <!-- script yang dibutuhkan -->
     <script src="{{ asset('lte/plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('lte/dist/js/adminlte.min.js') }}"></script>
-</body>
+    <!-- Bootstrap JS + Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+</body>
 </html>

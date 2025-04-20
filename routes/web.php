@@ -20,8 +20,12 @@ Route::get('/home', function () {
 
 Route::middleware('auth')->group(function () {
     Route::get('/ptsp/antrian', [AntrianController::class, 'index'])->name('antrian.index');
-    Route::post('/ptsp/meja-inzage', [AntrianController::class, 'storeInzage'])->name('antrian.storeInzage');
+    // Route::get('/ptsp/daftar-antrian')
     Route::get('/ptsp/meja-inzage', [MejaInzageController::class, 'index'])->name('meja-inzage.index');
+    Route::post('/ptsp/antrian/store-inzage', [AntrianController::class, 'storeInzage'])->name('antrian.inzage.store');
+    Route::get('/ptsp/inzage/{id}', [MejaInzageController::class, 'editInzage'])->name('inzage.edit');
+    Route::put('/ptsp/inzage/{id}', [MejaInzageController::class, 'update'])->name('inzage.update');
+    Route::delete('/ptsp/inzage/{id}', [MejaInzageController::class, 'destroy'])->name('inzage.destroy');
 });
 
 Route::middleware('auth')->group(function () {
