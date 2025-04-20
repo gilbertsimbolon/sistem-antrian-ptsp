@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 
 class DaftarAntrianController extends Controller
 {
-    //
+    public function index(){
+        return view('ptsp.daftar-antrian');
+    }
 }

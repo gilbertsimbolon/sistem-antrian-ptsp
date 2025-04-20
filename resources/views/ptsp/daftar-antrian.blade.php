@@ -21,14 +21,28 @@
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
 
+        <!-- Header -->
+        @include('admin.header')
+
+        <!-- Sidebar -->
+        @include('admin.sidebar')
+
+        <div class="content-wrapper">
+            <div class="container">
+                
+            </div>
+        </div>
+
+        @include('admin.footer')
+
     </div>
 
+    <!-- script yang dibutuhkan -->
     <script src="{{ asset('lte/plugins/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('lte/dist/js/adminlte.min.js') }}"></script>
     <!-- Bootstrap JS + Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
 </body>
 
 </html>
