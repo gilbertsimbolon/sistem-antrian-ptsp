@@ -30,7 +30,7 @@
         <div class="content-wrapper">
             <h1 class="text-center">Buku Tamu Meza Inzage</h1>
             <div class="px-4 py-3" border-radius: 10px;">
-                <table class="table table-bordered" style="background-color: #e6f4ea;">
+                <table class="table table-bordered table-head-fixed" style="background-color: #e6f4ea;">
                     <thead>
                         <tr>
                             <th>Nama</th>
@@ -59,7 +59,7 @@
                                         Edit
                                     </button>
                                     @include('ptsp.modal.edit-meja-inzage')
-            
+
                                     <!-- Form Hapus -->
                                     <form action="{{ route('inzage.destroy', $item->id) }}" method="POST">
                                         @csrf

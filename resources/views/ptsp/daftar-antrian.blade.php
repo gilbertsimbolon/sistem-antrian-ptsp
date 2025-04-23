@@ -28,9 +28,35 @@
         @include('admin.sidebar')
 
         <div class="content-wrapper">
-            <div class="container">
-                
-            </div>
+            <h1 class="text-center text-uppercase fs-1 mt-2">Daftar Antrian</h1>
+                <div class="px-4 py-3" border-radius: 10px;">
+                    <table class="table table-bordered table-head-fixed" style="background-color: #e6f4ea;">
+                        <thead>
+                            <tr class="text-center">
+                                <th class="bg-success">Meja Inzage</th>
+                                <th class="bg-primary">Meja Pidana</th>
+                                <th class="bg-warning">Meja Perdata</th>
+                                <th class="bg-danger">Meja Hukum</th>
+                                <th class="bg-info">Meja Umum</th>
+                                <th class="bg-secondary">Meja Sidang</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="text-center">
+                                <td></td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            {{-- @empty
+                            <tr>
+                                <td colspan="8" class="text-center text-muted">Belum ada antrian.</td>
+                            </tr> --}}
+                        </tbody>
+                    </table>
+                </div>
         </div>
 
         @include('admin.footer')

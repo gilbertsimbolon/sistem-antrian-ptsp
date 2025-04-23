@@ -42,3 +42,24 @@
         </form>
     </div>
 </div>
+
+@if(session('modalCetak'))
+<div class="modal fade show" style="display: block;" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                @include('ptsp.cetak.cetak-inzage', [
+                'data' => session('data'),
+                'nomor' => session('nomor'),
+                'qrCode' => session('qrCode'),
+                ])
+            </div>
+            <div class="modal-footer">
+                <button onclick="window.print()" class="btn btn-primary">Cetak</button>
+                <a href="{{ route('antrian.index') }}" class="btn btn-secondary">Tutup</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal-backdrop fade show"></div>
+@endif
