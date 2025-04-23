@@ -24,7 +24,8 @@ class AntrianController extends Controller
 
         $antrian = AntrianInzage::create($validated);
         $nomor = 'IZ' . str_pad($antrian->id, 3, '0', STR_PAD_LEFT);
-        $url = route('antrian.inzage.show', $antrian->id);
+        $url = 'http://192.168.116.152:8000/ptsp/antrian/show/' . $antrian->id;
+        // $url = route('antrian.inzage.show', $antrian->id);
         $qrCode = QrCode::size(200)->generate($url);
 
         return redirect()->route('antrian.index')->with([
@@ -33,5 +34,15 @@ class AntrianController extends Controller
             'nomor' => $nomor,
             'qrCode' => $qrCode,
         ]);
+    }
+
+    public function showInzage($id)
+    {
+        $data = AntrianInzage::findOrFail($id);
+        $nomor = 'IZ' . str_pad($data->id, 3, '0', STR_PAD_LEFT);
+        $url = url('/ptsp/antrian/show/' . $data->id);
+        $qrCode = QrCode::size(200)->generate($url);
+
+        return view('ptsp.cetak.cetak-inzage', compact('data', 'nomor', 'qrCode'));
     }
 }

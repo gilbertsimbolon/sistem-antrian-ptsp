@@ -20,12 +20,13 @@ Route::middleware('auth')->group(function () {
     Route::get('/ptsp/antrian', [AntrianController::class, 'index'])->name('antrian.index');
     Route::get('/ptsp/daftar-antrian', [DaftarAntrianController::class, 'index'])->name('daftar.antrian.index');
     Route::get('/ptsp/meja-inzage', [MejaInzageController::class, 'index'])->name('meja-inzage.index');
-    Route::get('/ptsp/antrian/show/{id}', [AntrianController::class, 'showInzage'])->name('antrian.inzage.show');
     Route::post('/ptsp/antrian/store-inzage', [AntrianController::class, 'storeInzage'])->name('antrian.inzage.store');
     Route::get('/ptsp/inzage/{id}', [MejaInzageController::class, 'editInzage'])->name('inzage.edit');
     Route::put('/ptsp/inzage/{id}', [MejaInzageController::class, 'update'])->name('inzage.update');
     Route::delete('/ptsp/inzage/{id}', [MejaInzageController::class, 'destroy'])->name('inzage.destroy');
 });
+
+Route::get('/ptsp/antrian/show/{id}', [AntrianController::class, 'showInzage'])->name('antrian.inzage.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/meja-pidana', [MejaPidanaController::class, 'index'])->name('meja-pidana.index');
