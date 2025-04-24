@@ -24,8 +24,8 @@ class AntrianController extends Controller
 
         $antrian = AntrianInzage::create($validated);
         $nomor = 'IZ' . str_pad($antrian->id, 3, '0', STR_PAD_LEFT);
-        $url = 'http://192.168.116.152:8000/ptsp/antrian/show/' . $antrian->id;
-        // $url = route('antrian.inzage.show', $antrian->id);
+        // $url = 'http://192.168.116.152:8000/ptsp/antrian/show/' . $antrian->id;
+        $url = route('antrian.inzage.show', $antrian->id);
         $qrCode = QrCode::size(200)->generate($url);
 
         return redirect()->route('antrian.index')->with([

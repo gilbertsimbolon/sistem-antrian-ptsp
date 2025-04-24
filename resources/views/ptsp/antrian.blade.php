@@ -18,7 +18,7 @@
     <script src="{{ asset('js/date-time.js') }}"></script>
 </head>
 
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition sidebar-mini overflow-hidden">
     <div class="wrapper">
 
         <!-- Header -->
