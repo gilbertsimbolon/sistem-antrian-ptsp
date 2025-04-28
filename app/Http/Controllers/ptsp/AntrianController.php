@@ -4,6 +4,7 @@ namespace App\Http\Controllers\ptsp;
 
 use App\Http\Controllers\Controller;
 use App\Models\AntrianInzage;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
@@ -22,9 +23,17 @@ class AntrianController extends Controller
             'jenis_kelamin' => 'required|in:Laki-laki,Perempuan',
         ]);
 
-        $antrian = AntrianInzage::create($validated);
-        $nomor = 'IZ' . str_pad($antrian->id, 3, '0', STR_PAD_LEFT);
-        // $url = 'http://192.168.116.152:8000/ptsp/antrian/show/' . $antrian->id;
+        // Cek nomor antrian terakhir hari ini
+        $today = Carbon::today();
+        $lastNumberToday = AntrianInzage::whereDate('created_at', $today)->max('nomor_antrian');
+
+        $nomorAntrian = $lastNumberToday ? $lastNumberToday + 1 : 1;
+
+        $validated['nomor_antrian'] = $nomorAntrian; // disisipkan
+
+        $antrian = AntrianInzage::create($validated); // tetap create
+
+        $nomor = 'IZ' . str_pad($antrian->nomor_antrian, 3, '0', STR_PAD_LEFT); // tampilkan pakai nomor_antrian
         $url = route('antrian.inzage.show', $antrian->id);
         $qrCode = QrCode::size(200)->generate($url);
 

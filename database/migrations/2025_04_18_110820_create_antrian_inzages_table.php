@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('no_telepon');
             $table->text('keperluan');
+            $table->integer('nomor_antrian')->nullable();
             $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
             $table->timestamps();
         });
