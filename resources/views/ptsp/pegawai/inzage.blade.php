@@ -28,51 +28,33 @@
         @include('admin.sidebar')
 
         <div class="content-wrapper">
-            <h1 class="text-center">Buku Tamu Meza Inzage</h1>
+            <h1 class="text-center">Antrian Meza Inzage</h1>
             <div class="px-4 py-3" border-radius: 10px;">
                 <table class="table table-bordered table-head-fixed" style="background-color: #e6f4ea;">
                     <thead>
                         <tr>
-                            <th>Nama</th>
-                            <th>No Telepon</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Keperluan</th>
-                            <th>Jam Input</th>
-                            <th>Tanggal Input</th>
-                            <th style="width: 150px" class="text-nowrap">Aksi</th>
+                            <th class="text-center">Nama</th>
+                            <th class="text-center">Nomor Antrian</th>
+                            <th style="width: 150px" class="text-center">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($dataInzage as $item)
-                        <tr>
+                        @forelse ($antrianInzage as $item)
+                        <tr id="row-{{ $item->id }}">
                             <td>{{ $item->nama }}</td>
-                            <td>{{ $item->no_telepon }}</td>
-                            <td>{{ $item->jenis_kelamin }}</td>
-                            <td>{{ $item->keperluan }}</td>
-                            <td>{{ $item->created_at->format('H:i') }}</td>
-                            <td>{{ $item->created_at->format('d-m-Y') }}</td>
+                            <td>{{ $item->nomor_antrian }}</td>
                             <td class="text-nowrap">
-                                <div class="d-flex gap-2">
-                                    <!-- Tombol Edit, buka modal -->
-                                    <button type="button" class="btn btn-sm btn-warning" data-bs-toggle="modal"
-                                        data-bs-target="#edit-modal{{ $item->id }}" style="width: 70px">
-                                        Edit
+                                <div class="d-flex justify-content-center">
+                                    <button type="button" class="btn btn-sm btn-success" style="width: 70px"
+                                        onclick="panggil('{{ $item->nama }}', '{{ $item->nomor_antrian }}', '{{ $item->jenis_kelamin }}', 'row-{{ $item->id }}')">
+                                        Panggil
                                     </button>
-                                    @include('ptsp.modal.edit-meja-inzage')
-
-                                    <!-- Form Hapus -->
-                                    <form action="{{ route('inzage.destroy', $item->id) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="btn btn-sm btn-danger" style="width: 70px"
-                                            onclick="return confirm('Yakin ingin hapus?')">Hapus</button>
-                                    </form>
                                 </div>
                             </td>
                         </tr>
                         @empty
                         <tr>
-                            <td colspan="8" class="text-center text-muted">Data belum ada</td>
+                            <td colspan="8" class="text-center text-muted">Data antrian belum ada.</td>
                         </tr>
                         @endforelse
                     </tbody>
@@ -90,6 +72,30 @@
     <!-- Bootstrap JS + Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script>
+        function panggil(nama, nomor, jenisKelamin, rowId) {
+            let sapaan = "Bapak";
+            if (jenisKelamin.toLowerCase() === "perempuan") {
+                sapaan = "Ibu";
+            }
+    
+            const kalimat = `Atas nama ${sapaan} ${nama}, dengan nomor antrian ${nomor}, silakan menuju meja Inzage.`;
+            const suara = new SpeechSynthesisUtterance(kalimat);
+            suara.lang = 'id-ID';
+            suara.volume = 1;
+            suara.rate = 1;
+            suara.pitch = 1;
+    
+            suara.onend = function () {
+                const row = document.getElementById(rowId);
+                if (row) {
+                    row.remove();
+                }
+            };
+    
+            window.speechSynthesis.speak(suara);
+        }
+    </script>
 </body>
 
 </html>
