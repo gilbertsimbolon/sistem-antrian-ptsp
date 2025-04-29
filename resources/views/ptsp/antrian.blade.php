@@ -90,9 +90,9 @@
                         <div class="text-center card-body">
                             <button type="button" class="py-4 btn btn-secondary w-100" data-bs-toggle="modal"
                                 data-bs-target="#modal-sidang" style="height:250px">
-                                <h1 class="text-uppercase fs-1">Meja Sidang</h1>
+                                <h1 class="text-uppercase fs-1">Meja Pojok E-Court</h1>
                             </button>
-                            @include('ptsp.modal.meja-sidang-modal')
+                            @include('ptsp.modal.meja-pojok-e-court-modal')
                         </div>
                     </div>
                 </div>
