@@ -79,7 +79,7 @@
                 sapaan = "Ibu";
             }
     
-            const kalimat = `Atas nama ${sapaan} ${nama}, dengan nomor antrian ${nomor}, silakan menuju meja Inzage.`;
+            const kalimat = `Atas nama ${sapaan} ${nama}, dengan nomor antrian ${nomor}, silakan menuju meja Inzeg.`;
             const suara = new SpeechSynthesisUtterance(kalimat);
             suara.lang = 'id-ID';
             suara.volume = 1;
@@ -91,10 +91,28 @@
                 if (row) {
                     row.remove();
                 }
+    
+                // Simpan ID yang sudah dipanggil ke localStorage
+                let sudahDipanggil = JSON.parse(localStorage.getItem('sudahDipanggil')) || [];
+                if (!sudahDipanggil.includes(rowId)) {
+                    sudahDipanggil.push(rowId);
+                    localStorage.setItem('sudahDipanggil', JSON.stringify(sudahDipanggil));
+                }
             };
     
             window.speechSynthesis.speak(suara);
         }
+    
+        // Saat halaman diload, sembunyikan yang sudah dipanggil
+        window.addEventListener('DOMContentLoaded', function () {
+            let sudahDipanggil = JSON.parse(localStorage.getItem('sudahDipanggil')) || [];
+            sudahDipanggil.forEach(function (rowId) {
+                const row = document.getElementById(rowId);
+                if (row) {
+                    row.remove();
+                }
+            });
+        });
     </script>
 </body>
 

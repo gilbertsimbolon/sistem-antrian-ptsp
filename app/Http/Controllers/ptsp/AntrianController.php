@@ -48,7 +48,7 @@ class AntrianController extends Controller
     public function showInzage($id)
     {
         $data = AntrianInzage::findOrFail($id);
-        $nomor = 'IZ' . str_pad($data->id, 3, '0', STR_PAD_LEFT);
+        $nomor = 'IZ' . str_pad($data->nomor_antrian, 3, '0', STR_PAD_LEFT);
         $url = url('/ptsp/antrian/show/' . $data->id);
         $qrCode = QrCode::size(200)->generate($url);
 
