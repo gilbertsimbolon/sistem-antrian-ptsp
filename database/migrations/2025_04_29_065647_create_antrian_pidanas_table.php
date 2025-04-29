@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ptsp_umum_hukum', function (Blueprint $table) {
+        Schema::create('antrian_pidanas', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('nohp');
-            $table->string('jeniskelamin');
+            $table->string('no_telepon');
+            $table->text('keperluan');
+            $table->integer('nomor_antrian')->nullable();
+            $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('ptsp_umum_hukum');
+        Schema::dropIfExists('antrian_pidanas');
     }
 };
