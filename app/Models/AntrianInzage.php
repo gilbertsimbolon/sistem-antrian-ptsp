@@ -13,6 +13,7 @@ class AntrianInzage extends Model
         'nama',
         'no_telepon',
         'keperluan',
-        'jenis_kelamin'
+        'nomor_antrian',
+        'jenis_kelamin',
     ];
 }
