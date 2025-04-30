@@ -1,7 +1,7 @@
 <div class="modal fade" id="edit-modal{{ $item->id }}" tabindex="-1" aria-labelledby="formModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
-        <form action="{{ route('inzage.update', $item->id) }}" method="POST">
+        <form action="{{ route('pidana.update', $item->id) }}" method="POST">
             @csrf
             @method('PUT')
             <!-- Menggunakan method PUT untuk update data -->

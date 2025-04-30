@@ -99,27 +99,27 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ url('ptsp/meja-umum') }}" class="nav-link">
+                                    <a href="{{ url('ptsp/pegawai/meja-umum') }}" class="nav-link">
                                         <p>Meja Umum</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ url('ptsp/meja-perdata') }}" class="nav-link">
+                                    <a href="{{ url('ptsp/pegawai/meja-perdata') }}" class="nav-link">
                                         <p>Meja Perdata</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ url('ptsp/meja-pidana') }}" class="nav-link">
+                                    <a href="{{ url('ptsp/pegawai/meja-pidana') }}" class="nav-link">
                                         <p>Meja Pidana</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ url('ptsp/meja-pengaduan-umum-atau-hukum') }}" class="nav-link">
+                                    <a href="{{ url('ptsp/pegawai/meja-pengaduan-umum-atau-hukum') }}" class="nav-link">
                                         <p>Meja Pengaduan Umum/Hukum</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ url('ptsp/meja-pojok-e-court') }}" class="nav-link">
+                                    <a href="{{ url('ptsp/pegawai/meja-pojok-e-court') }}" class="nav-link">
                                         <p>Meja Pojok E-Court</p>
                                     </a>
                                 </li>
