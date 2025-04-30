@@ -1,5 +1,5 @@
 <!-- Modal -->
-<div class="modal fade" id="modal-inzage" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
+<div class="modal fade" id="modal-pidana" tabindex="-1" aria-labelledby="formModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <form action="{{ route('antrian.pidana.store') }}" method="POST">
             @csrf

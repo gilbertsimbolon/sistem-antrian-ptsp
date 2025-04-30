@@ -58,10 +58,10 @@
                                         data-bs-target="#edit-modal{{ $item->id }}" style="width: 70px">
                                         Edit
                                     </button>
-                                    @include('ptsp.modal.edit-meja-inzage')
+                                    @include('ptsp.modal.edit-meja-pidana')
 
                                     <!-- Form Hapus -->
-                                    <form action="{{ route('inzage.destroy', $item->id) }}" method="POST">
+                                    <form action="{{ route('pidana.destroy', $item->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-sm btn-danger" style="width: 70px"

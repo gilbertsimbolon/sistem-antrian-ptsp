@@ -77,7 +77,7 @@ class AntrianController extends Controller
 
         $antrian = AntrianPidana::create($validated); // tetap create
 
-        $nomor = 'IZ' . str_pad($antrian->nomor_antrian, 3, '0', STR_PAD_LEFT); // tampilkan pakai nomor_antrian
+        $nomor = 'PD' . str_pad($antrian->nomor_antrian, 3, '0', STR_PAD_LEFT); // tampilkan pakai nomor_antrian
         $url = route('antrian.pidana.show', $antrian->id);
         $qrCode = QrCode::size(200)->generate($url);
 
@@ -92,7 +92,7 @@ class AntrianController extends Controller
     public function showPidana($id)
     {
         $data = AntrianPidana::findOrFail($id);
-        $nomor = 'IZ' . str_pad($data->nomor_antrian, 3, '0', STR_PAD_LEFT);
+        $nomor = 'PD' . str_pad($data->nomor_antrian, 3, '0', STR_PAD_LEFT);
         $url = url('/ptsp/antrian/show/' . $data->id);
         $qrCode = QrCode::size(200)->generate($url);
 
