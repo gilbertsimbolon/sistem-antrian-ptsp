@@ -7,7 +7,7 @@ use App\Http\Controllers\ptsp\MejaInzageController;
 use App\Http\Controllers\ptsp\MejaPidanaController;
 use App\Http\Controllers\ptsp\DaftarAntrianController;
 use App\Http\Controllers\ptsp\pegawai\InzageController;
-
+use App\Http\Controllers\ptsp\pegawai\PidanaController;
 
 // Halaman Login
 Route::get('/', function () {
@@ -30,10 +30,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/ptsp/pegawai/meja-inzage', [InzageController::class, 'index'])->name('pegawai.inzage.index');
 
     // Daftar Antrian Meja Pidana
-    Route::get('ptsp/pegawai/meja-pidana', [Pidana])
+    Route::get('ptsp/pegawai/meja-pidana', [PidanaController::class, 'index'])->name('pegawai.pidana.index');
 
     // Meja Inzage
-    Route::get('/ptsp/meja-inzage', [MejaInzageController::class, 'index'])->name('meja-inzage.index');
+    Route::get('/ptsp/meja-inzage', [MejaPidanaController::class, 'index'])->name('meja-inzage.index');
     Route::get('/ptsp/inzage/{id}', [MejaInzageController::class, 'editInzage'])->name('inzage.edit');
     Route::put('/ptsp/inzage/{id}', [MejaInzageController::class, 'update'])->name('inzage.update');
     Route::delete('/ptsp/inzage/{id}', [MejaInzageController::class, 'destroy'])->name('inzage.destroy');
