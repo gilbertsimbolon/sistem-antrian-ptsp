@@ -48,7 +48,7 @@
                                 data-bs-target="#modal-pidana" style="height:250px">
                                 <h1 class="text-uppercase fs-1">Meja Pidana</h1>
                             </button>
-                            {{-- @include('ptsp.modal.meja-pidana-modal') --}}
+                            @include('ptsp.modal.meja-pidana-modal')
                         </div>
                     </div>
 

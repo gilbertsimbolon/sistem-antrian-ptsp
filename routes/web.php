@@ -39,6 +39,11 @@ Route::middleware('auth')->group(function () {
     Route::put('/ptsp/inzage/{id}', [MejaInzageController::class, 'update'])->name('inzage.update');
     Route::delete('/ptsp/inzage/{id}', [MejaInzageController::class, 'destroy'])->name('inzage.destroy');
 
+    // Meja Pidana
+    Route::get('/ptsp/meja-pidana', [MejaPidanaController::class, 'index'])->name('meja-pidana.index');
+    Route::get('/ptsp/pidana/{id}', [MejaPidanaController::class, 'editPidana'])->name('pidana.edit');
+    Route::put('/ptsp/pidana/{id}', [MejaPidanaController::class, 'update'])->name('pidana.update');
+    Route::delete('/ptsp/pidana/{id}', [MejaPidanaController::class, 'destroy'])->name('pidana.destroy');
 });
 
 // Route untuk menampilkan antrian tertentu
