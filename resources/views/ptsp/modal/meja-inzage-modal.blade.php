@@ -56,7 +56,7 @@
             </div>
             <div class="modal-footer">
                 {{-- <button onclick="window.print()" class="btn btn-primary">Cetak</button> --}}
-                <a href="{{ url('/ptsp/antrian/show/' . session('data')->id) }}" class="btn btn-success">Cetak</a>
+                <a href="{{ route('antrian.inzage.show', session('data')->id) }}" class="btn btn-success">Cetak</a>
                 <a href="{{ route('antrian.index') }}" class="btn btn-secondary">Tutup</a>
             </div>
         </div>

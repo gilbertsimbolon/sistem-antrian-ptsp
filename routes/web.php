@@ -5,9 +5,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ptsp\AntrianController;
 use App\Http\Controllers\ptsp\MejaInzageController;
 use App\Http\Controllers\ptsp\MejaPidanaController;
-use App\Http\Controllers\ptsp\DaftarAntrianController;
 use App\Http\Controllers\ptsp\pegawai\InzageController;
 use App\Http\Controllers\ptsp\pegawai\PidanaController;
+use App\Http\Controllers\ptsp\antrian\AntrianInzageController;
+use App\Http\Controllers\ptsp\antrian\AntrianPidanaController;
 
 // Halaman Login
 Route::get('/', function () {
@@ -23,8 +24,8 @@ Route::get('/home', function () {
 Route::middleware('auth')->group(function () {
     // Antrian PTSP
     Route::get('/ptsp/antrian', [AntrianController::class, 'index'])->name('antrian.index');
-    Route::post('/ptsp/antrian/store-inzage', [AntrianController::class, 'storeInzage'])->name('antrian.inzage.store');
-    Route::post('/ptsp/antrian/store-pidana', [AntrianController::class, 'storePidana'])->name('antrian.pidana.store');
+    Route::post('/ptsp/antrian/store-inzage', [AntrianInzageController::class, 'storeInzage'])->name('antrian.inzage.store');
+    Route::post('/ptsp/antrian/store-pidana', [AntrianPidanaController::class, 'storePidana'])->name('antrian.pidana.store');
 
     // Daftar Antrian Meja Inzage
     Route::get('/ptsp/pegawai/meja-inzage', [InzageController::class, 'index'])->name('pegawai.inzage.index');
@@ -33,7 +34,7 @@ Route::middleware('auth')->group(function () {
     Route::get('ptsp/pegawai/meja-pidana', [PidanaController::class, 'index'])->name('pegawai.pidana.index');
 
     // Meja Inzage
-    Route::get('/ptsp/meja-inzage', [MejaPidanaController::class, 'index'])->name('meja-inzage.index');
+    Route::get('/ptsp/meja-inzage', [MejaInzageController::class, 'index'])->name('meja-inzage.index');
     Route::get('/ptsp/inzage/{id}', [MejaInzageController::class, 'editInzage'])->name('inzage.edit');
     Route::put('/ptsp/inzage/{id}', [MejaInzageController::class, 'update'])->name('inzage.update');
     Route::delete('/ptsp/inzage/{id}', [MejaInzageController::class, 'destroy'])->name('inzage.destroy');
@@ -46,8 +47,8 @@ Route::middleware('auth')->group(function () {
 });
 
 // Route untuk menampilkan antrian tertentu
-Route::get('/ptsp/antrian/show/{id}', [AntrianController::class, 'showInzage'])->name('antrian.inzage.show');
-Route::get('/ptsp/antrian/show/{id}', [AntrianController::class, 'showPidana'])->name('antrian.pidana.show');
+Route::get('/ptsp/antrian/inzage/{id}', [AntrianController::class, 'showInzage'])->name('antrian.inzage.show');
+Route::get('/ptsp/antrian/pidana/{id}', [AntrianController::class, 'showPidana'])->name('antrian.pidana.show');
 
 // Menggunakan auth.php untuk menangani login, register, dll
 require __DIR__.'/auth.php';

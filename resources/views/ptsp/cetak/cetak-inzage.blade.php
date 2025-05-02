@@ -102,16 +102,5 @@
             Terima kasih telah menggunakan layanan PTSP Pengadilan Negeri Tondano
         </div>
     </div>
-    {{-- <script>
-        // Cek apakah bukan perangkat mobile
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    
-        // Hanya print otomatis kalau dari desktop
-        if (!isMobile) {
-            window.onload = function () {
-                window.print();
-            };
-        }
-    </script> --}}
 </body>
 </html>
