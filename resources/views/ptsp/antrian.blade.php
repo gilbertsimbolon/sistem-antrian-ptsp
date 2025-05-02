@@ -59,7 +59,7 @@
                                 data-bs-target="#modal-perdata" style="height:250px">
                                 <h1 class="text-uppercase fs-1">Meja Perdata</h1>
                             </button>
-                            {{-- @include('ptsp.modal.meja-perdata-modal') --}}
+                            @include('ptsp.modal.meja-perdata-modal')
                         </div>
                     </div>
 
