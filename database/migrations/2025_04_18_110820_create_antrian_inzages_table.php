@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('keperluan');
             $table->integer('nomor_antrian')->nullable();
             $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
+            $table->string('meja')->default('INZAGE');
             $table->timestamps();
         });
     }

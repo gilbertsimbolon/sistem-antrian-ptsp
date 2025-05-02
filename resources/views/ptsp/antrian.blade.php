@@ -59,7 +59,7 @@
                                 data-bs-target="#modal-perdata" style="height:250px">
                                 <h1 class="text-uppercase fs-1">Meja Perdata</h1>
                             </button>
-                            @include('ptsp.modal.meja-perdata-modal')
+                            {{-- @include('ptsp.modal.meja-perdata-modal') --}}
                         </div>
                     </div>
 
@@ -70,7 +70,7 @@
                                 data-bs-target="#modal-hukum" style="height:250px">
                                 <h1 class="text-uppercase fs-1">Meja Hukum</h1>
                             </button>
-                            @include('ptsp.modal.meja-hukum-modal')
+                            {{-- @include('ptsp.modal.meja-hukum-modal') --}}
                         </div>
                     </div>
 
@@ -81,7 +81,7 @@
                                 data-bs-target="#modal-umum" style="height:250px">
                                 <h1 class="text-uppercase fs-1">Meja Umum</h1>
                             </button>
-                            @include('ptsp.modal.meja-umum-modal')
+                            {{-- @include('ptsp.modal.meja-umum-modal') --}}
                         </div>
                     </div>
 
@@ -92,7 +92,7 @@
                                 data-bs-target="#modal-sidang" style="height:250px">
                                 <h1 class="text-uppercase fs-1">Meja Pojok E-Court</h1>
                             </button>
-                            @include('ptsp.modal.meja-pojok-e-court-modal')
+                            {{-- @include('ptsp.modal.meja-pojok-e-court-modal') --}}
                         </div>
                     </div>
                 </div>

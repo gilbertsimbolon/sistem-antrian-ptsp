@@ -25,7 +25,7 @@ Route::middleware('auth')->group(function () {
     // Antrian PTSP
     Route::get('/ptsp/antrian', [AntrianController::class, 'index'])->name('antrian.index');
     Route::post('/ptsp/antrian/store-inzage', [AntrianInzageController::class, 'store'])->name('antrian.inzage.store');
-    // Route::post('/ptsp/antrian/store-pidana', [AntrianPidanaController::class, 'store'])->name('antrian.pidana.store');
+    Route::post('/ptsp/antrian/store-pidana', [AntrianPidanaController::class, 'store'])->name('antrian.pidana.store');
 
     // Daftar Antrian Meja Inzage
     Route::get('/ptsp/pegawai/meja-inzage', [InzageController::class, 'index'])->name('pegawai.inzage.index');
@@ -42,8 +42,11 @@ Route::middleware('auth')->group(function () {
 });
 
 // Route untuk menampilkan antrian tertentu
-Route::get('/ptsp/antrian/inzage/{id}', [AntrianInzageController::class, 'show'])->name('antrian.inzage.show');
-
+Route::prefix('/ptsp/antrian')->group(function () {
+    Route::get('/inzage/{id}', [AntrianInzageController::class, 'show'])->name('antrian.inzage.show');
+    Route::get('/pidana/{id}', [AntrianPidanaController::class, 'show'])->name('antrian.pidana.show');
+    // Tambahkan lainnya di sini
+});
 
 // Menggunakan auth.php untuk menangani login, register, dll
 require __DIR__.'/auth.php';

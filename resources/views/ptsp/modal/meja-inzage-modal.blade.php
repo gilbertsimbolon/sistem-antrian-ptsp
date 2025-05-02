@@ -43,15 +43,15 @@
     </div>
 </div>
 
-@if(session('modalCetak'))
+@if(session('modal-cetak-inzage'))
 <div class="modal fade show" style="display: block;" tabindex="-1" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
                 @include('ptsp.cetak.cetak-inzage', [
                 'data' => session('data'),
-                'nama' => session('nama'),
                 'nomor' => session('nomor'),
+                'meja' => session('meja'),
                 'qrCode' => session('qrCode'),
                 ])
             </div>

@@ -15,5 +15,6 @@ class AntrianInzage extends Model
         'keperluan',
         'nomor_antrian',
         'jenis_kelamin',
+        'meja'
     ];
 }

@@ -23,23 +23,24 @@ class AntrianInzageController extends Controller
         $today = Carbon::today();
         $lastNumberToday = AntrianInzage::whereDate('created_at', $today)->max('nomor_antrian');
 
-        $nomorAntrian = $lastNumberToday ? $lastNumberToday + 1 : 1;
+        $nomorAntrianInzage = $lastNumberToday ? $lastNumberToday + 1 : 1;
 
-        $validated['nomor_antrian'] = $nomorAntrian; // disisipkan
+        $validated['nomor_antrian'] = $nomorAntrianInzage; 
+        $validated['meja'] = 'INZAGE';
 
-        $antrian = AntrianInzage::create($validated); // tetap create
+        $antrianInzage = AntrianInzage::create($validated); // tetap create
 
-        $nomor = 'IZ' . str_pad($antrian->nomor_antrian, 3, '0', STR_PAD_LEFT); // tampilkan pakai nomor_antrian
-        $url = route('antrian.inzage.show', $antrian->id);
-        $qrCode = QrCode::size(200)->generate($url);
-        // dd('testing');
+        $nomorInzage = 'IZ' . str_pad($antrianInzage->nomor_antrian, 3, '0', STR_PAD_LEFT); // tampilkan pakai nomor_antrian
+        $urlInzage = route('antrian.inzage.show', $antrianInzage->id);
+        $mejaInzage = $antrianInzage->meja;
+        $qrCodeInzage = QrCode::size(200)->generate($urlInzage); 
 
         return redirect()->route('antrian.index')->with([
-            'modalCetak' => true,
-            'data' => $antrian,
-            'nama' => 'INZAGE',
-            'nomor' => $nomor,
-            'qrCode' => $qrCode,
+            'modal-cetak-inzage' => true,
+            'data' => $antrianInzage,
+            'nomor' => $nomorInzage,
+            'meja' => $mejaInzage,
+            'qrCode' => $qrCodeInzage,
         ]);
     }
 
@@ -49,8 +50,7 @@ class AntrianInzageController extends Controller
         $nomor = 'IZ' . str_pad($data->nomor_antrian, 3, '0', STR_PAD_LEFT);
         $url = url('/ptsp/antrian/show/' . $data->id);
         $qrCode = QrCode::size(200)->generate($url);
-        $meja = 'INZAGE';
 
-        return view('ptsp.cetak.cetak-inzage', compact('data', 'nomor', 'meja', 'qrCode'));
+        return view('ptsp.cetak.cetak-inzage', compact('data', 'nomor', 'qrCode'));
     }
 }

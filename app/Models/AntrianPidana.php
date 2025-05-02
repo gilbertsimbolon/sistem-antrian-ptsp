@@ -15,5 +15,6 @@ class AntrianPidana extends Model
         'keperluan',
         'nomor_antrian',
         'jenis_kelamin',
+        'meja'
     ];
 }

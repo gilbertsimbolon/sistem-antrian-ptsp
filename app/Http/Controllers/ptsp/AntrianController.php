@@ -13,7 +13,5 @@ class AntrianController extends Controller
 {
     public function index() {
         return view('ptsp.antrian');
-    }
-
-    
+    }    
 }
