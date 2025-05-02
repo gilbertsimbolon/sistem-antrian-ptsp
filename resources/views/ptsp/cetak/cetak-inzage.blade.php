@@ -85,7 +85,7 @@
         </div>
 
         <div class="nomor">
-            MEJA INZAGE<br>
+            MEJA INZAGE <br>
             NOMOR ANTRIAN<br>
             {{ $nomor }}
         </div>

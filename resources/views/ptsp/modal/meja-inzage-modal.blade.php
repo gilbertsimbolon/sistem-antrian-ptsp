@@ -50,6 +50,7 @@
             <div class="modal-body">
                 @include('ptsp.cetak.cetak-inzage', [
                 'data' => session('data'),
+                'nama' => session('nama'),
                 'nomor' => session('nomor'),
                 'qrCode' => session('qrCode'),
                 ])

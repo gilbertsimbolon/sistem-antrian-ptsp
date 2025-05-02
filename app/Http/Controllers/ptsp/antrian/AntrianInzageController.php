@@ -10,7 +10,7 @@ use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class AntrianInzageController extends Controller
 {
-    public function storeInzage(Request $request)
+    public function store(Request $request)
     {
         $validated = $request->validate([
             'nama' => 'required|string|max:255',
@@ -37,12 +37,13 @@ class AntrianInzageController extends Controller
         return redirect()->route('antrian.index')->with([
             'modalCetak' => true,
             'data' => $antrian,
+            'nama' => 'INZAGE',
             'nomor' => $nomor,
             'qrCode' => $qrCode,
         ]);
     }
 
-    public function showInzage($id)
+    public function show($id)
     {
         $data = AntrianInzage::findOrFail($id);
         $nomor = 'IZ' . str_pad($data->nomor_antrian, 3, '0', STR_PAD_LEFT);
