@@ -22,6 +22,11 @@
             </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="{{ route('profile.edit') }}" role="button">
+                <i class="text-white fas fa-user"></i>
+            </a>
+        </li>
+        <li class="nav-item">
             <form action="{{ route('logout') }}" method="POST" class="d-inline">
                 @csrf
                 <button type="submit" class="btn btn-light nav-link" style="border: none; background: none;">

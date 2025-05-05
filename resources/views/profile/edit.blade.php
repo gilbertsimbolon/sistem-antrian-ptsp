@@ -1,29 +1,24 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
-            {{ __('Profile') }}
-        </h2>
-    </x-slot>
+    <div class="card">
+        <div class="card-header">Edit Profil</div>
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-profile-information-form')
-                </div>
-            </div>
+        <div class="card-body">
+            <form method="POST" action="{{ route('profile.update') }}">
+                @csrf
+                @method('PATCH')
 
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.update-password-form')
+                <div class="form-group">
+                    <label>Nama</label>
+                    <input type="text" class="form-control" name="name" value="{{ old('name', $user->name) }}">
                 </div>
-            </div>
 
-            <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
-                <div class="max-w-xl">
-                    @include('profile.partials.delete-user-form')
+                <div class="form-group mt-2">
+                    <label>Email</label>
+                    <input type="email" class="form-control" name="email" value="{{ old('email', $user->email) }}">
                 </div>
-            </div>
+
+                <button class="btn btn-primary mt-3" type="submit">Simpan</button>
+            </form>
         </div>
     </div>
 </x-app-layout>

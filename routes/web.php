@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\AntrianPojokECourt;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ptsp\AntrianController;
 use App\Http\Controllers\ptsp\MejaUmumController;
 use App\Http\Controllers\ptsp\MejaHukumController;
@@ -12,6 +14,7 @@ use App\Http\Controllers\ptsp\pegawai\UmumController;
 use App\Http\Controllers\ptsp\pegawai\HukumController;
 use App\Http\Controllers\ptsp\pegawai\InzageController;
 use App\Http\Controllers\ptsp\pegawai\PidanaController;
+use App\Http\Controllers\ptsp\MejaPojokECourtController;
 use App\Http\Controllers\ptsp\pegawai\PerdataController;
 use App\Http\Controllers\ptsp\antrian\AntrianUmumController;
 use App\Http\Controllers\ptsp\pegawai\PojokECourtController;
@@ -20,13 +23,18 @@ use App\Http\Controllers\ptsp\antrian\AntrianInzageController;
 use App\Http\Controllers\ptsp\antrian\AntrianPidanaController;
 use App\Http\Controllers\ptsp\antrian\AntrianPerdataController;
 use App\Http\Controllers\ptsp\antrian\AntrianPojokECourtController;
-use App\Http\Controllers\ptsp\MejaPojokECourtController;
-use App\Models\AntrianPojokECourt;
 
 // Halaman Login
 Route::get('/', function () {
     return view('auth.login');
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
 
 // Halaman Home (dengan middleware auth dan verified)
 Route::get('/home', function () {
