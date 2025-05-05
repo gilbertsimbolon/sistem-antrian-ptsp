@@ -3,21 +3,25 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ptsp\AntrianController;
+use App\Http\Controllers\ptsp\MejaUmumController;
 use App\Http\Controllers\ptsp\MejaHukumController;
 use App\Http\Controllers\ptsp\MejaInzageController;
 use App\Http\Controllers\ptsp\MejaPidanaController;
 use App\Http\Controllers\ptsp\MejaPerdataController;
+use App\Http\Controllers\ptsp\pegawai\UmumController;
 use App\Http\Controllers\ptsp\pegawai\HukumController;
 use App\Http\Controllers\ptsp\pegawai\InzageController;
 use App\Http\Controllers\ptsp\pegawai\PidanaController;
 use App\Http\Controllers\ptsp\pegawai\PerdataController;
 use App\Http\Controllers\ptsp\antrian\AntrianUmumController;
+use App\Http\Controllers\ptsp\pegawai\PojokECourtController;
 use App\Http\Controllers\ptsp\antrian\AntrianHukumController;
 use App\Http\Controllers\ptsp\antrian\AntrianInzageController;
 use App\Http\Controllers\ptsp\antrian\AntrianPidanaController;
 use App\Http\Controllers\ptsp\antrian\AntrianPerdataController;
-use App\Http\Controllers\ptsp\MejaUmumController;
-use App\Http\Controllers\ptsp\pegawai\UmumController;
+use App\Http\Controllers\ptsp\antrian\AntrianPojokECourtController;
+use App\Http\Controllers\ptsp\MejaPojokECourtController;
+use App\Models\AntrianPojokECourt;
 
 // Halaman Login
 Route::get('/', function () {
@@ -38,6 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/ptsp/antrian/store-perdata', [AntrianPerdataController::class, 'store'])->name('antrian.perdata.store');
     Route::post('/ptsp/antrian/store-hukum', [AntrianHukumController::class, 'store'])->name('antrian.hukum.store');
     Route::post('/ptsp/antrian/store-umum', [AntrianUmumController::class, 'store'])->name('antrian.umum.store');
+    Route::post('/ptsp/antrian/store-pojok-e-court', [AntrianPojokECourtController::class, 'store'])->name('antrian.pojok-e-court.store');
 
     // Daftar Antrian Meja Inzage
     Route::get('/ptsp/pegawai/meja-inzage', [InzageController::class, 'index'])->name('pegawai.inzage.index');
@@ -53,6 +58,9 @@ Route::middleware('auth')->group(function () {
 
     // Daftar Antrian Meja Umum
     Route::get('ptsp/pegawai/meja-umum', [UmumController::class, 'index'])->name('pegawai.umum.index');
+
+    // Daftar Antrian Meja Pojok E-Court
+    Route::get('ptsp/pegawai/meja-pojok-e-court', [PojokECourtController::class, 'index'])->name('pegawai.pojok-e-court.index');
 
 
 
@@ -85,6 +93,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/ptsp/umum/{id}', [MejaUmumController::class, 'editUmum'])->name('umum.edit');
     Route::put('/ptsp/umum/{id}', [MejaUmumController::class, 'update'])->name('umum.update');
     Route::delete('/ptsp/umum/{id}', [MejaUmumController::class, 'destroy'])->name('umum.destroy');
+
+    // Meja Pojok E-Court
+    Route::get('/ptsp/meja-pojok-e-court', [MejaPojokECourtController::class, 'index'])->name('meja-pojok-e-court.index');
+    Route::get('/ptsp/pojok-e-court/{id}', [MejaPojokECourtController::class, 'editPojokECourt'])->name('pojok-e-court.edit');
+    Route::put('/ptsp/pojok-e-court/{id}', [MejaPojokECourtController::class, 'update'])->name('pojok-e-court.update');
+    Route::delete('/ptsp/pojok-e-court/{id}', [MejaPojokECourtController::class, 'destroy'])->name('pojok-e-court.destroy');
 });
 
 // Route untuk menampilkan antrian tertentu
@@ -94,6 +108,7 @@ Route::prefix('/ptsp/antrian')->group(function () {
     Route::get('/perdata/{id}', [AntrianPerdataController::class, 'show'])->name('antrian.perdata.show');
     Route::get('/hukum/{id}', [AntrianHukumController::class, 'show'])->name('antrian.hukum.show');
     Route::get('/umum/{id}', [AntrianUmumController::class, 'show'])->name('antrian.umum.show');
+    Route::get('/pojok-e-court/{id}', [AntrianPojokECourtController::class, 'show'])->name('antrian.pojok-e-court.show');
     // Tambahkan lainnya di sini
 });
 

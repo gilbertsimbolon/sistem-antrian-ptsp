@@ -28,13 +28,8 @@
         @include('admin.sidebar')
 
         <div class="content-wrapper">
-            <div class="px-4" border-radius: 10px;">
-                <h1 class="text-center">Buku Tamu Meja Inzage</h1>
-                <form method="GET" action="{{ route('meja-inzage.index') }}" class="mb-3 d-flex justify-content-end">
-                    <input type="text" name="search" class="form-control w-25 me-2" placeholder="Cari nama atau keperluan..."
-                        value="{{ request('search') }}">
-                    <button type="submit" class="btn btn-primary">Cari</button>
-                </form>
+            <h1 class="text-center">Buku Tamu Meja Pojok E-Court</h1>
+            <div class="px-4 py-3" border-radius: 10px;">
                 <table class="table table-bordered table-head-fixed" style="background-color: #e6f4ea;">
                     <thead>
                         <tr>
@@ -48,7 +43,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($dataInzage as $item)
+                        @forelse ($dataPojokECourt as $item)
                         <tr>
                             <td>{{ $item->nama }}</td>
                             <td>{{ $item->no_telepon }}</td>
@@ -63,10 +58,10 @@
                                         data-bs-target="#edit-modal{{ $item->id }}" style="width: 70px">
                                         Edit
                                     </button>
-                                    @include('ptsp.modal.edit-meja-inzage')
+                                    @include('ptsp.modal.edit-meja-pojok-e-court')
 
                                     <!-- Form Hapus -->
-                                    <form action="{{ route('inzage.destroy', $item->id) }}" method="POST">
+                                    <form action="{{ route('pojok-e-court.destroy', $item->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-sm btn-danger" style="width: 70px"
@@ -96,4 +91,5 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
+
 </html>
