@@ -42,7 +42,7 @@ Route::get('/home', function () {
 })->middleware(['auth', 'verified'])->name('home');
 
 // Grup Route yang membutuhkan autentikasi
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'role:admin|staff|operator'])->group(function () {
     // Antrian PTSP
     Route::get('/ptsp/antrian', [AntrianController::class, 'index'])->name('antrian.index');
     Route::post('/ptsp/antrian/store-inzage', [AntrianInzageController::class, 'store'])->name('antrian.inzage.store');
