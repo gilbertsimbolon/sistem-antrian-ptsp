@@ -58,8 +58,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ url('ptsp/meja-pengaduan-umum-atau-hukum') }}" class="nav-link">
-                                        <p>Meja Pengaduan Umum/Hukum</p>
+                                    <a href="{{ url('ptsp/meja-hukum') }}" class="nav-link">
+                                        <p>Meja Hukum</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -114,8 +114,8 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ url('ptsp/pegawai/meja-pengaduan-umum-atau-hukum') }}" class="nav-link">
-                                        <p>Meja Pengaduan Umum/Hukum</p>
+                                    <a href="{{ url('ptsp/pegawai/meja-hukum') }}" class="nav-link">
+                                        <p>Meja Hukum</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">

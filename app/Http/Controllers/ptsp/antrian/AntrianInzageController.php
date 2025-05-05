@@ -25,15 +25,17 @@ class AntrianInzageController extends Controller
 
         $nomorAntrianInzage = $lastNumberToday ? $lastNumberToday + 1 : 1;
 
-        $validated['nomor_antrian'] = $nomorAntrianInzage; 
+        $validated['nomor_antrian'] = $nomorAntrianInzage;
         $validated['meja'] = 'INZAGE';
 
         $antrianInzage = AntrianInzage::create($validated); // tetap create
 
+        
+
         $nomorInzage = 'IZ' . str_pad($antrianInzage->nomor_antrian, 3, '0', STR_PAD_LEFT); // tampilkan pakai nomor_antrian
         $urlInzage = route('antrian.inzage.show', $antrianInzage->id);
         $mejaInzage = $antrianInzage->meja;
-        $qrCodeInzage = QrCode::size(200)->generate($urlInzage); 
+        $qrCodeInzage = QrCode::size(200)->generate($urlInzage);
 
         return redirect()->route('antrian.index')->with([
             'modal-cetak-inzage' => true,

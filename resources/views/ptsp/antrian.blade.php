@@ -70,7 +70,7 @@
                                 data-bs-target="#modal-hukum" style="height:250px">
                                 <h1 class="text-uppercase fs-1">Meja Hukum</h1>
                             </button>
-                            {{-- @include('ptsp.modal.meja-hukum-modal') --}}
+                            @include('ptsp.modal.meja-hukum-modal')
                         </div>
                     </div>
 

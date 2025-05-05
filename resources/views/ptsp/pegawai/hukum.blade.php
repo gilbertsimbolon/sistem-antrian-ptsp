@@ -28,7 +28,7 @@
         @include('admin.sidebar')
 
         <div class="content-wrapper">
-            <h1 class="text-center">Antrian Meja Perdata</h1>
+            <h1 class="text-center">Antrian Meja Hukum</h1>
             <div class="px-4 py-3" border-radius: 10px;">
                 <table class="table table-bordered table-head-fixed" style="background-color: #e6f4ea;">
                     <thead>
@@ -39,7 +39,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($antrianPerdata as $item)
+                        @forelse ($antrianHukum as $item)
                         <tr id="row-{{ $item->id }}">
                             <td>{{ $item->nama }}</td>
                             <td>{{ $item->nomor_antrian }}</td>
@@ -79,7 +79,7 @@
                 sapaan = "Ibu";
             }
 
-            const kalimat = `Atas nama ${sapaan} ${nama}, dengan nomor antrian ${nomor}, silakan menuju meja perdata.`;
+            const kalimat = `Atas nama ${sapaan} ${nama}, dengan nomor antrian ${nomor}, silakan menuju meja hukum.`;
             const suara = new SpeechSynthesisUtterance(kalimat);
             suara.lang = 'id-ID';
             suara.volume = 1;
