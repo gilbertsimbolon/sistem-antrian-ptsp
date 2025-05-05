@@ -8,24 +8,44 @@ use Illuminate\Http\Request;
 
 class MejaInzageController extends Controller
 {
-    public function index() {
-    $dataInzage = AntrianInzage::all();
+    // Menampilkan data + pencarian
+    public function index(Request $request)
+    {
+        $search = $request->input('search');
+
+        $query = AntrianInzage::query();
+
+        if ($search) {
+            $query->where(function ($q) use ($search) {
+                $q->where('nama', 'like', "%{$search}%")
+                    ->orWhere('keperluan', 'like', "%{$search}%");
+            });
+        }
+
+        $dataInzage = $query->orderBy('created_at', 'desc')->get();
+
         return view('ptsp.meja-inzage-ptsp', compact('dataInzage'));
     }
 
-    public function editInzage($id) {
+    // Edit data
+    public function editInzage($id)
+    {
         $inzage = AntrianInzage::findOrFail($id);
         return view('ptsp.modal.meja-inzage-modal', compact('inzage'));
     }
 
-    public function update(Request $request, $id) {
+    // Update data
+    public function update(Request $request, $id)
+    {
         $inzage = AntrianInzage::findOrFail($id);
         $inzage->update($request->all());
 
         return redirect()->route('meja-inzage.index')->with('success', 'Data berhasil diubah.');
     }
 
-    public function destroy($id){
+    // Hapus data
+    public function destroy($id)
+    {
         $inzage = AntrianInzage::findOrFail($id);
         $inzage->delete();
 

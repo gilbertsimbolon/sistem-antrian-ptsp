@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Sistem Antrian | PN TONDANO</title>
+    <title>Meja Perdata | PN TONDANO</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet"
@@ -16,6 +16,9 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('lte/dist/css/adminlte.min.css') }}">
     <script src="{{ asset('js/date-time.js') }}"></script>
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.1/css/buttons.dataTables.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -28,9 +31,14 @@
         @include('admin.sidebar')
 
         <div class="content-wrapper">
-            <h1 class="text-center">Buku Tamu Meja Perdata</h1>
-            <div class="px-4 py-3" border-radius: 10px;">
-                <table class="table table-bordered table-head-fixed" style="background-color: #e6f4ea;">
+            <div class="px-4" border-radius: 10px;">
+                <h1 class="text-center">Buku Tamu Meja Perdata</h1>
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <div id="custom-export"></div>
+                    <div id="custom-search" class="dataTables_filter"></div>
+                </div>
+                <table id="perdataTable" class="table table-bordered table-head-fixed"
+                    style="background-color: #e6f4ea;">
                     <thead>
                         <tr>
                             <th>Nama</th>
@@ -83,12 +91,56 @@
         @include('admin.footer')
 
     </div>
-
+    <!-- JQUERY (Pindahkan ke paling atas dari semua JS) -->
     <script src="{{ asset('lte/plugins/jquery/jquery.min.js') }}"></script>
+
+    <!-- DataTables + Export Script -->
+    <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.1/js/buttons.html5.min.js"></script>
+
+    <!-- Bootstrap JS (setelah jQuery & DataTables) -->
     <script src="{{ asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('lte/dist/js/adminlte.min.js') }}"></script>
-    <!-- Bootstrap JS + Popper.js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AdminLTE -->
+    <script src="{{ asset('lte/dist/js/adminlte.min.js') }}"></script>
+
+    <script>
+        $(document).ready(function() {
+        const table = $('#perdataTable').DataTable({
+            paging: false,
+            dom: 'Bfrtip',
+            buttons: [
+                {
+                    extend: 'excelHtml5',
+                    text: 'Export ke Excel',
+                    className: 'btn btn-success',
+                    exportOptions: {
+                        columns: ':not(:last-child)' // kecuali kolom Aksi
+                    }
+                }
+            ],
+            language: {
+                search: "Cari:",
+                lengthMenu: "Tampilkan _MENU_ data",
+                info: "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+                paginate: {
+                    previous: "Sebelumnya",
+                    next: "Berikutnya"
+                },
+                zeroRecords: "Data tidak ditemukan"
+            },
+            initComplete: function() {
+                // Pindahkan tombol dan search ke tempat custom
+                table.buttons().container().appendTo('#custom-export');
+                $('#perdataTable_filter').appendTo('#custom-search');
+                $('.dt-button').removeClass('dt-button').addClass('btn btn-success me-2');
+            }
+        });
+    });
+    </script>
 
 </body>
 
