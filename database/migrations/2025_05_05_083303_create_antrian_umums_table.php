@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('antrian_hukums', function (Blueprint $table) {
+        Schema::create('antrian_umums', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
             $table->string('no_telepon');
             $table->text('keperluan');
             $table->integer('nomor_antrian')->nullable();
             $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
-            $table->string('meja')->default('HUKUM');
+            $table->string('meja')->default('UMUM');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('antrian_hukums');
+        Schema::dropIfExists('antrian_umums');
     }
 };

@@ -81,7 +81,7 @@
                                 data-bs-target="#modal-umum" style="height:250px">
                                 <h1 class="text-uppercase fs-1">Meja Umum</h1>
                             </button>
-                            {{-- @include('ptsp.modal.meja-umum-modal') --}}
+                            @include('ptsp.modal.meja-umum-modal')
                         </div>
                     </div>
 
