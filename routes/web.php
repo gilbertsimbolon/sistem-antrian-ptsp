@@ -42,7 +42,7 @@ Route::get('/home', function () {
 })->middleware(['auth', 'verified'])->name('home');
 
 // Grup Route yang membutuhkan autentikasi
-Route::middleware(['auth', 'role:admin|staff|operator'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     // Antrian PTSP
     Route::get('/ptsp/antrian', [AntrianController::class, 'index'])->name('antrian.index');
     Route::post('/ptsp/antrian/store-inzage', [AntrianInzageController::class, 'store'])->name('antrian.inzage.store');
@@ -77,37 +77,44 @@ Route::middleware(['auth', 'role:admin|staff|operator'])->group(function () {
     Route::get('/ptsp/inzage/{id}', [MejaInzageController::class, 'editInzage'])->name('inzage.edit');
     Route::put('/ptsp/inzage/{id}', [MejaInzageController::class, 'update'])->name('inzage.update');
     Route::delete('/ptsp/inzage/{id}', [MejaInzageController::class, 'destroy'])->name('inzage.destroy');
+    Route::get('/api/antrian-inzage', [InzageController::class, 'getData']);
+
 
     // Meja Pidana
     Route::get('/ptsp/meja-pidana', [MejaPidanaController::class, 'index'])->name('meja-pidana.index');
     Route::get('/ptsp/pidana/{id}', [MejaPidanaController::class, 'editPidana'])->name('pidana.edit');
     Route::put('/ptsp/pidana/{id}', [MejaPidanaController::class, 'update'])->name('pidana.update');
     Route::delete('/ptsp/pidana/{id}', [MejaPidanaController::class, 'destroy'])->name('pidana.destroy');
+    Route::get('/api/antrian-pidana', [PidanaController::class, 'getData']);
 
     // Meja Perdata
     Route::get('/ptsp/meja-perdata', [MejaPerdataController::class, 'index'])->name('meja-perdata.index');
     Route::get('/ptsp/perdata/{id}', [MejaPerdataController::class, 'editPerdata'])->name('perdata.edit');
     Route::put('/ptsp/perdata/{id}', [MejaPerdataController::class, 'update'])->name('perdata.update');
     Route::delete('/ptsp/perdata/{id}', [MejaPerdataController::class, 'destroy'])->name('perdata.destroy');
+    Route::get('/api/antrian-perdata', [PerdataController::class, 'getData']);
 
     // Meja Hukum
     Route::get('/ptsp/meja-hukum', [MejaHukumController::class, 'index'])->name('meja-hukum.index');
     Route::get('/ptsp/hukum/{id}', [MejaHukumController::class, 'editHukum'])->name('hukum.edit');
     Route::put('/ptsp/hukum/{id}', [MejaHukumController::class, 'update'])->name('hukum.update');
     Route::delete('/ptsp/hukum/{id}', [MejaHukumController::class, 'destroy'])->name('hukum.destroy');
+    Route::get('/api/antrian-hukum', [HukumController::class, 'getData']);
 
     // Meja Umum
     Route::get('/ptsp/meja-umum', [MejaUmumController::class, 'index'])->name('meja-umum.index');
     Route::get('/ptsp/umum/{id}', [MejaUmumController::class, 'editUmum'])->name('umum.edit');
     Route::put('/ptsp/umum/{id}', [MejaUmumController::class, 'update'])->name('umum.update');
     Route::delete('/ptsp/umum/{id}', [MejaUmumController::class, 'destroy'])->name('umum.destroy');
+    Route::get('/api/antrian-umum', [UmumController::class, 'getData']);
 
     // Meja Pojok E-Court
     Route::get('/ptsp/meja-pojok-e-court', [MejaPojokECourtController::class, 'index'])->name('meja-pojok-e-court.index');
     Route::get('/ptsp/pojok-e-court/{id}', [MejaPojokECourtController::class, 'editPojokECourt'])->name('pojok-e-court.edit');
     Route::put('/ptsp/pojok-e-court/{id}', [MejaPojokECourtController::class, 'update'])->name('pojok-e-court.update');
     Route::delete('/ptsp/pojok-e-court/{id}', [MejaPojokECourtController::class, 'destroy'])->name('pojok-e-court.destroy');
-});
+    Route::get('/api/antrian-pojok-e-court', [PojokECourtController::class, 'getData']);
+ });
 
 // Route untuk menampilkan antrian tertentu
 Route::prefix('/ptsp/antrian')->group(function () {
