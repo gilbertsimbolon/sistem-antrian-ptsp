@@ -2,6 +2,7 @@
 
 use App\Models\AntrianPojokECourt;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ptsp\AntrianController;
@@ -29,19 +30,22 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::prefix('/admin/')->group(function () {
+    Route::get('user', [UserController::class, 'index'])->name('user.index');
+});
+
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-
 // Halaman Home (dengan middleware auth dan verified)
 Route::get('/home', function () {
     return view('home');
 })->middleware(['auth', 'verified'])->name('home');
 
-// Grup Route yang membutuhkan autentikasi
+// Pelayanan Terpadu Satu Pintu (PTSP)
 Route::middleware(['auth'])->group(function () {
     // Antrian PTSP
     Route::get('/ptsp/antrian', [AntrianController::class, 'index'])->name('antrian.index');
