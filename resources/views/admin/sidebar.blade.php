@@ -23,6 +23,15 @@
 
                 <li class="text-sm nav-header">PELAYANAN TERPADU SATU PINTU</li>
 
+                <!-- Antrian -->
+                <li class="nav-item">
+                    <a href="{{ url('ptsp/antrian') }}" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>Antrian</p>
+                    </a>
+                </li>
+
+
                 <!-- BUKU TAMU -->
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">

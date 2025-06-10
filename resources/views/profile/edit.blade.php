@@ -17,6 +17,16 @@
                     <input type="email" class="form-control" name="email" value="{{ old('email', $user->email) }}">
                 </div>
 
+                <div class="form-group mt-2">
+                    <label>Password</label>
+                    <input type="text" class="form-control" name="password">
+                </div>
+
+                <div class="form-group mt-2 disabled bg-light">
+                    <label>Role</label>
+                    <input type="text" class="form-control" name="role" value="{{old('role', $user->role)}}" readonly>
+                </div>
+
                 <button class="btn btn-primary mt-3" type="submit">Simpan</button>
             </form>
         </div>
