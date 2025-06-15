@@ -23,7 +23,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->update($request->all());
 
-        return redirect()->route('user.update')->with('sukses', 'Berhasil diperbarui.');
+        return redirect()->route('user.index')->with('sukses', 'Berhasil diperbarui.');
     }
 
     public function destroy($id){

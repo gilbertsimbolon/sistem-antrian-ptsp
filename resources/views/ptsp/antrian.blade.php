@@ -16,6 +16,17 @@
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('lte/dist/css/adminlte.min.css') }}">
     <script src="{{ asset('js/date-time.js') }}"></script>
+    <style>
+        @media (max-width: 576px) {
+            button.btn {
+                height: auto !important;
+            }
+
+            button.btn h1 {
+                font-size: 1.2rem !important;
+            }
+        }
+    </style>
 </head>
 
 <body class="hold-transition sidebar-mini overflow-hidden">
